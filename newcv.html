@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youba Bakhouche — QA Engineer</title>
+  <meta name="description" content="CV of Youba Bakhouche — QA Engineer & Team Lead specializing in test automation, Cypress E2E, API testing, and Agile delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..400&family=Noto+Sans+Arabic:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --color-bg:#f7f6f2;--color-surface:#f2f0eb;
+      --color-divider:#d5d2ca;--color-border:#cbc8c0;
+      --color-text:#1e1c17;--color-text-muted:#6b6960;--color-text-faint:#a8a59e;
+      --color-text-inverse:#f7f6f2;--color-primary:#01696f;--color-primary-hover:#0c4e54;
+      --color-primary-highlight:#cedcd8;
+      --shadow-sm:0 1px 2px rgba(30,28,23,.06);--shadow-md:0 4px 12px rgba(30,28,23,.09);
+      --radius-sm:.375rem;--radius-md:.5rem;--radius-xl:1rem;--radius-full:9999px;
+      --transition:180ms cubic-bezier(.16,1,.3,1);
+      --font-display:'Instrument Serif',Georgia,serif;
+      --font-body:'DM Sans','Helvetica Neue',sans-serif;
+      --font-arabic:'Noto Sans Arabic','DM Sans',sans-serif;
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-hero:clamp(3rem,1rem + 5vw,5.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+    }
+    [data-theme="dark"]{
+      --color-bg:#111210;--color-surface:#171614;
+      --color-divider:#2e2c29;--color-border:#3a3835;
+      --color-text:#d9d7d2;--color-text-muted:#7d7b76;--color-text-faint:#55534f;
+      --color-text-inverse:#111210;--color-primary:#4f98a3;--color-primary-hover:#6fb8c3;
+      --color-primary-highlight:#1f3739;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 4px 16px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;scroll-padding-top:var(--space-16)}
+    body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);transition:background .25s,color .25s}
+    body[data-lang="ar"]{font-family:var(--font-arabic)}
+    h1,h2,h3,h4{text-wrap:balance;line-height:1.15}
+    p,li{text-wrap:pretty}
+    ::selection{background:rgba(79,152,163,.25);color:var(--color-text)}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+    .container{max-width:920px;margin-inline:auto;padding-inline:var(--space-6)}
+
+    /* TOPBAR */
+    .topbar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--color-bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(127,122,118,.12);padding-block:var(--space-3)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+    .topbar-logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text)}
+    .topbar-logo span{font-family:var(--font-display);font-size:var(--text-sm);font-style:italic;color:var(--color-text-muted)}
+    .topbar-right{display:flex;align-items:center;gap:var(--space-2)}
+    .lang-switcher{display:flex;align-items:center;gap:var(--space-1);background:rgba(127,122,118,.07);border:1px solid rgba(127,122,118,.13);border-radius:var(--radius-full);padding:3px}
+    .lang-btn{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted);padding:4px 10px;border-radius:var(--radius-full);transition:color var(--transition),background var(--transition);white-space:nowrap;line-height:1.4}
+    .lang-btn.active{color:var(--color-text-inverse);background:var(--color-primary)}
+    .lang-btn:hover:not(.active){color:var(--color-text);background:rgba(127,122,118,.1)}
+    .topbar-nav{display:flex;align-items:center;gap:var(--space-1)}
+    .topbar-nav a{font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);text-decoration:none;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);letter-spacing:.04em;text-transform:uppercase;transition:color var(--transition),background var(--transition)}
+    .topbar-nav a:hover{color:var(--color-text);background:rgba(127,122,118,.08)}
+    .theme-toggle{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);color:var(--color-text-muted);transition:color var(--transition),background var(--transition)}
+    .theme-toggle:hover{color:var(--color-text);background:rgba(127,122,118,.08)}
+
+    /* HERO */
+    .hero{padding-block:clamp(var(--space-16),10vw,6rem);border-bottom:1px solid var(--color-divider)}
+    .hero-inner{display:grid;grid-template-columns:1fr auto;gap:var(--space-12);align-items:end}
+    .hero-kicker{font-size:var(--text-xs);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-4);display:flex;align-items:center;gap:var(--space-2)}
+    .hero-kicker::before{content:'';display:block;width:20px;height:1.5px;background:var(--color-primary);flex-shrink:0}
+    [dir="rtl"] .hero-kicker{flex-direction:row-reverse}
+    [dir="rtl"] .hero-kicker::before{display:none}
+    [dir="rtl"] .hero-kicker::after{content:'';display:block;width:20px;height:1.5px;background:var(--color-primary);flex-shrink:0}
+    .hero-name{font-family:var(--font-display);font-size:var(--text-hero);font-weight:400;font-style:italic;line-height:.95;letter-spacing:-.02em;color:var(--color-text);margin-bottom:var(--space-6)}
+    .hero-name em{font-style:normal;color:var(--color-text-muted)}
+    [dir="rtl"] .hero-name{letter-spacing:0;font-family:var(--font-arabic);font-style:normal}
+    .hero-title{font-size:var(--text-lg);font-weight:400;color:var(--color-text-muted);margin-bottom:var(--space-8);max-width:55ch;line-height:1.5}
+    .hero-summary{font-size:var(--text-base);color:var(--color-text-muted);max-width:60ch;line-height:1.75;margin-bottom:var(--space-8)}
+    .hero-summary strong{color:var(--color-text);font-weight:600}
+    .hero-contacts{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .contact-pill{display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);background:rgba(127,122,118,.05);border:1px solid rgba(127,122,118,.1);padding:var(--space-2) var(--space-3);border-radius:var(--radius-full);text-decoration:none;transition:color var(--transition),background var(--transition),border-color var(--transition)}
+    .contact-pill:hover{color:var(--color-primary);background:var(--color-primary-highlight);border-color:rgba(79,152,163,.3)}
+
+    /* SCORE CARD */
+    .hero-score-card{background:var(--color-surface);border:1px solid rgba(127,122,118,.1);border-radius:var(--radius-xl);padding:var(--space-6);min-width:180px;text-align:center;box-shadow:var(--shadow-md);flex-shrink:0}
+    .score-ring{width:80px;height:80px;margin:0 auto var(--space-3);position:relative}
+    .score-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+    .score-ring-bg{stroke:rgba(127,122,118,.1);fill:none}
+    .score-ring-fill{stroke:var(--color-primary);fill:none;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1)}
+    .score-value{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .score-number{font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;line-height:1;color:var(--color-text)}
+    .score-label{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.05em}
+    .score-title{font-size:var(--text-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-1)}
+    .score-sub{font-size:var(--text-xs);color:var(--color-text-faint);line-height:1.5}
+
+    /* BODY GRID */
+    .cv-body{display:grid;grid-template-columns:1fr 275px;gap:var(--space-12);padding-block:var(--space-16);align-items:start}
+
+    /* SECTION LABELS */
+    .section-label{font-size:var(--text-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-6);display:flex;align-items:center;gap:var(--space-3)}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--color-divider)}
+    [dir="rtl"] .section-label{flex-direction:row-reverse}
+    [dir="rtl"] .section-label::after{display:none}
+    [dir="rtl"] .section-label::before{content:'';flex:1;height:1px;background:var(--color-divider)}
+
+    /* EXPERIENCE */
+    .experience-list{display:flex;flex-direction:column;gap:var(--space-10)}
+    .exp-entry{padding-bottom:var(--space-10);border-bottom:1px solid var(--color-divider)}
+    .exp-entry:last-child{border-bottom:none;padding-bottom:0}
+    .exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-3)}
+    .exp-role{font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;font-style:italic;color:var(--color-text)}
+    [dir="rtl"] .exp-role{font-family:var(--font-arabic);font-style:normal}
+    .exp-company{font-size:var(--text-sm);font-weight:600;color:var(--color-text);margin-top:var(--space-1)}
+    .exp-meta{display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-1);flex-shrink:0}
+    [dir="rtl"] .exp-meta{align-items:flex-start}
+    .exp-date{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
+    .exp-location{font-size:var(--text-xs);color:var(--color-text-faint)}
+    .exp-tag{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;color:var(--color-primary);background:var(--color-primary-highlight);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm)}
+    .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
+    .exp-bullets li{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;padding-inline-start:var(--space-5);position:relative}
+    .exp-bullets li::before{content:'–';position:absolute;inset-inline-start:0;color:var(--color-primary);font-weight:700}
+    .exp-bullets li strong{color:var(--color-text);font-weight:600}
+
+    /* EDUCATION */
+    .edu-card{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);padding:var(--space-5) var(--space-6);background:var(--color-surface);border:1px solid rgba(127,122,118,.08);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);flex-wrap:wrap}
+    .edu-degree-main{font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;color:var(--color-text);line-height:1.2}
+    [dir="rtl"] .edu-degree-main{font-family:var(--font-arabic);font-style:normal}
+    .edu-school-main{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
+    .edu-date-main{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap;margin-top:var(--space-1);text-align:right}
+    [dir="rtl"] .edu-date-main{text-align:left}
+    .cert-card{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-4) var(--space-6);background:var(--color-primary-highlight);border:1px solid rgba(79,152,163,.2);border-radius:var(--radius-xl);flex-wrap:wrap}
+    .cert-icon{width:36px;height:36px;border-radius:50%;background:var(--color-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cert-body{flex:1}
+    .cert-title-main{font-size:var(--text-sm);font-weight:600;color:var(--color-text)}
+    .cert-issuer-main{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px}
+    .cert-date-main{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
+
+    /* SIDEBAR */
+    .sidebar{position:sticky;top:calc(var(--space-12) + 56px)}
+    .sidebar-section{margin-bottom:var(--space-8)}
+    .sidebar-section:last-child{margin-bottom:0}
+    .sidebar-title{font-size:var(--text-xs);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-4);padding-bottom:var(--space-2);border-bottom:1px solid var(--color-divider)}
+    .skill-group{margin-bottom:var(--space-4)}
+    .skill-group-label{font-size:var(--text-xs);color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-2)}
+    .skill-chips{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+    .chip{font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);background:rgba(127,122,118,.05);border:1px solid rgba(127,122,118,.09);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);white-space:nowrap;transition:color var(--transition),background var(--transition)}
+    .chip:hover{color:var(--color-primary);background:var(--color-primary-highlight)}
+    .chip.chip--primary{color:var(--color-primary);background:var(--color-primary-highlight);border-color:rgba(79,152,163,.25)}
+    .lang-item{display:flex;justify-content:space-between;align-items:center;padding:var(--space-2) 0;border-bottom:1px solid rgba(127,122,118,.05)}
+    .lang-item:last-child{border-bottom:none}
+    .lang-name{font-size:var(--text-sm);font-weight:500;color:var(--color-text)}
+    .lang-level-txt{font-size:var(--text-xs);color:var(--color-text-faint)}
+    .dl-btn{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:600;letter-spacing:.04em;color:var(--color-text-inverse);background:var(--color-primary);padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);transition:background var(--transition)}
+    .dl-btn:hover{background:var(--color-primary-hover)}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .section-gap{margin-top:var(--space-12)}
+
+    /* ── PRINT / PDF ─────────────────────────────────────── */
+    @media print {
+      @page { size:A4; margin:14mm 16mm 14mm 16mm; }
+      :root,[data-theme="dark"],[data-theme="light"]{
+        --color-bg:#fff;--color-surface:#f5f5f3;--color-divider:#ddd;
+        --color-text:#111;--color-text-muted:#444;--color-text-faint:#888;
+        --color-text-inverse:#fff;--color-primary:#01696f;
+        --color-primary-highlight:#d6ecea;
+        --shadow-sm:none;--shadow-md:none;
+        --text-xs:8pt;--text-sm:9pt;--text-base:9.5pt;
+        --text-lg:12pt;--text-hero:28pt;--text-xl:18pt;
+        --space-1:2pt;--space-2:4pt;--space-3:5pt;--space-4:7pt;--space-5:8pt;
+        --space-6:10pt;--space-8:13pt;--space-10:16pt;--space-12:20pt;--space-16:26pt;
+        --radius-sm:3pt;--radius-md:4pt;--radius-xl:6pt;--radius-full:99pt;
+      }
+      *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+      body{background:#fff!important;color:#111!important;font-size:9.5pt;line-height:1.5;font-family:'DM Sans',Arial,sans-serif}
+      .topbar,.theme-toggle,.lang-switcher,.dl-btn,footer{display:none!important}
+      .sidebar{position:static!important}
+      .reveal{opacity:1!important;transform:none!important}
+
+      .hero{padding-block:0 14pt!important;border-bottom:1.5pt solid #01696f!important;margin-bottom:14pt}
+      .hero-inner{display:grid;grid-template-columns:1fr auto;gap:16pt;align-items:start}
+      .hero-score-card{display:none!important}
+      .hero-kicker{font-size:7pt;letter-spacing:.12em;color:#01696f;margin-bottom:5pt}
+      .hero-name{font-size:26pt;line-height:1;margin-bottom:5pt;color:#111}
+      .hero-name em{color:#555}
+      .hero-title{font-size:10pt;color:#444;margin-bottom:8pt}
+      .hero-summary{font-size:8.5pt;color:#444;line-height:1.55;margin-bottom:8pt;max-width:100%}
+      .hero-summary strong{color:#111}
+      .hero-contacts{display:flex;flex-wrap:wrap;gap:5pt}
+      .contact-pill{font-size:7.5pt;color:#444;border:.75pt solid #ccc;padding:2pt 6pt;border-radius:99pt;background:transparent;text-decoration:none;display:flex;align-items:center;gap:3pt}
+      .contact-pill svg{width:9pt;height:9pt}
+
+      .container{max-width:100%;padding-inline:0}
+      .cv-body{display:grid;grid-template-columns:1fr 155pt;gap:18pt;padding-block:0!important;align-items:start}
+
+      .section-label{font-size:7pt;letter-spacing:.13em;color:#01696f;margin-bottom:8pt;padding-bottom:3pt;border-bottom:1pt solid #01696f;display:flex;align-items:center;gap:0}
+      .section-label::after,.section-label::before{display:none}
+
+      .experience-list{gap:10pt}
+      .exp-entry{padding-bottom:10pt;border-bottom:.5pt solid #ddd;page-break-inside:avoid}
+      .exp-entry:last-child{border-bottom:none;padding-bottom:0}
+      .exp-role{font-size:11pt;color:#111;font-style:italic}
+      .exp-company{font-size:8.5pt;font-weight:700;color:#111;margin-top:1pt}
+      .exp-date{font-size:7.5pt;color:#888}
+      .exp-location{font-size:7.5pt;color:#888}
+      .exp-tag{font-size:6.5pt;background:#d6ecea;color:#01696f;padding:1pt 4pt;border-radius:3pt}
+      .exp-header{margin-bottom:5pt}
+      .exp-bullets li{font-size:8.5pt;color:#444;line-height:1.5;padding-inline-start:10pt}
+      .exp-bullets li::before{color:#01696f}
+      .exp-bullets li strong{color:#111}
+
+      .section-gap{margin-top:12pt}
+      .edu-card{padding:7pt 9pt;background:#f5f5f3;border:.75pt solid #ddd;border-radius:5pt;margin-bottom:5pt;display:flex;justify-content:space-between;align-items:flex-start;page-break-inside:avoid}
+      .edu-degree-main{font-size:10pt;font-style:italic;color:#111}
+      .edu-school-main{font-size:8pt;color:#555;margin-top:2pt}
+      .edu-date-main{font-size:7.5pt;color:#888}
+      .cert-card{padding:6pt 9pt;background:#d6ecea;border:.75pt solid rgba(1,105,111,.2);border-radius:5pt;display:flex;align-items:center;gap:8pt;page-break-inside:avoid}
+      .cert-icon{width:24pt;height:24pt;background:#01696f;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+      .cert-title-main{font-size:8.5pt;font-weight:700;color:#111}
+      .cert-issuer-main{font-size:7.5pt;color:#444}
+      .cert-date-main{font-size:7.5pt;color:#888;white-space:nowrap}
+
+      .sidebar-title{font-size:7pt;letter-spacing:.1em;color:#555;margin-bottom:5pt;padding-bottom:2pt;border-bottom:.5pt solid #ddd}
+      .sidebar-section{margin-bottom:10pt;page-break-inside:avoid}
+      .skill-group{margin-bottom:6pt}
+      .skill-group-label{font-size:6.5pt;color:#888;margin-bottom:3pt;text-transform:uppercase;letter-spacing:.07em}
+      .skill-chips{display:flex;flex-wrap:wrap;gap:2.5pt}
+      .chip{font-size:6.5pt;color:#444;border:.5pt solid #ccc;padding:1.5pt 4pt;border-radius:3pt;background:transparent;white-space:nowrap}
+      .chip.chip--primary{color:#01696f;background:#d6ecea;border-color:rgba(1,105,111,.25)}
+      .lang-item{padding:2pt 0;border-bottom:.5pt solid #eee;display:flex;justify-content:space-between}
+      .lang-name{font-size:8pt;color:#111;font-weight:600}
+      .lang-level-txt{font-size:7.5pt;color:#888}
+      h2{page-break-after:avoid}
+      section{page-break-inside:avoid}
+    }
+
+    @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-score-card{display:none}.cv-body{grid-template-columns:1fr}.sidebar{position:static}.topbar-nav{display:none}}
+    @media(max-width:480px){.exp-header{flex-direction:column}.exp-meta{align-items:flex-start}.edu-card{flex-direction:column}.edu-date-main{text-align:left}}
+  </style>
+</head>
+<body data-lang="en">
+
+<header class="topbar" role="banner">
+  <div class="container">
+    <div class="topbar-inner">
+      <a href="#" class="topbar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="var(--color-primary)" opacity="0.15"/>
+          <path d="M8 8 L14 14 L8 20" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 14 L20 14" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="20" cy="14" r="1.5" fill="var(--color-primary)"/>
+        </svg>
+        <span>youba.online</span>
+      </a>
+      <nav class="topbar-nav">
+        <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+        <a href="#education" data-i18n="nav_education">Education</a>
+      </nav>
+      <div class="topbar-right">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="ar">عر</button>
+        </div>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-kicker" data-i18n="kicker">QA Engineer &amp; Team Lead</p>
+          <h1 class="hero-name">Youba <em>Bakhouche</em></h1>
+          <p class="hero-title" data-i18n="hero_title">Test Automation · QA Strategy · Agile Delivery</p>
+          <p class="hero-summary" data-i18n="hero_summary">QA engineer and team lead with <strong>2+ years of hands-on experience</strong> owning test strategy, building <strong>Cypress E2E automation suites</strong>, and validating web product quality from sprint planning through production release. Brings a technical edge in <strong>REST API testing, AI-assisted test planning</strong>, and cross-functional collaboration with product and engineering teams. Known for <strong>high adaptability and quick learning capacity</strong> — picking up new tools, domains, and workflows rapidly across both technical and product environments.</p>
+          <div class="hero-contacts">
+            <a href="mailto:youba.bakhouche.99@gmail.com" class="contact-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              youba.bakhouche.99@gmail.com
+            </a>
+            <a href="https://youba.online" target="_blank" rel="noopener" class="contact-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              youba.online
+            </a>
+            <span class="contact-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="location">Boumerdès, Algeria · Remote</span>
+            </span>
+            <a href="tel:+213696333122" class="contact-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +213 696 33 31 22
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cv-body">
+
+      <!-- MAIN COLUMN -->
+      <div>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+          <h2 class="section-label" data-i18n="sec_experience">Experience</h2>
+          <ol class="experience-list" role="list">
+
+            <li class="exp-entry reveal">
+              <div class="exp-header">
+                <div>
+                  <p class="exp-role" data-i18n="ld_role">QA Engineer &amp; Team Lead</p>
+                  <p class="exp-company">Lasting Dynamics</p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-tag" data-i18n="tag_remote">Remote</span>
+                  <span class="exp-date">Aug 2024 – Apr 2026</span>
+                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                </div>
+              </div>
+              <ul class="exp-bullets" role="list" data-i18n-list="ld_bullets">
+                <li>Owned end-to-end QA for <strong>3+ web products</strong>, leading test planning, defect triage, and release readiness across sprints — reducing release-blocking regressions through systematic coverage.</li>
+                <li>Designed and maintained a <strong>Cypress E2E automation suite</strong> covering critical user flows, cutting manual regression time by an estimated <strong>40%</strong> per release cycle.</li>
+                <li>Integrated <strong>AI-assisted workflows</strong> (test case generation, risk-based prioritization) that accelerated QA planning speed and improved test case relevance for new features.</li>
+                <li>Led <strong>REST API testing</strong> using Postman, validating integration contracts and edge cases across service boundaries before frontend delivery.</li>
+                <li>Mentored team members on QA best practices, acceptance criteria writing, and defect reporting; collaborated directly with product, design, and engineering on requirements and risk analysis.</li>
+              </ul>
+            </li>
+
+            <li class="exp-entry reveal">
+              <div class="exp-header">
+                <div>
+                  <p class="exp-role" data-i18n="cap_role">Project Manager</p>
+                  <p class="exp-company">CAPDEL</p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-date">Aug 2022 – Jan 2023</span>
+                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                </div>
+              </div>
+              <ul class="exp-bullets" role="list" data-i18n-list="cap_bullets">
+                <li>Managed a <strong>cross-functional team</strong> of market study experts and artisan instructors, keeping project execution aligned with scope, milestones, and delivery timelines.</li>
+                <li>Translated customer requirements into clear production specs for artisans — directly parallel to writing user stories and acceptance criteria in software delivery.</li>
+                <li>Coordinated stakeholder communication between CAPDEL leadership and third-party partners, ensuring alignment on deliverables and follow-up actions.</li>
+                <li>Handled <strong>end-to-end sales operations</strong> including order management, delivery coordination, and acceptance validation — applying structured quality checks to product outputs.</li>
+              </ul>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section-gap">
+          <h2 class="section-label" data-i18n="sec_projects">Independent Projects</h2>
+          <ol class="experience-list" role="list">
+            <li class="exp-entry reveal">
+              <div class="exp-header">
+                <div>
+                  <p class="exp-role" data-i18n="bj_role">Director &amp; Product Owner</p>
+                  <p class="exp-company">Brokenjars Interactive <span style="font-weight:400;color:var(--color-text-faint)" data-i18n="paused">(Paused)</span></p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-date" data-i18n="bj_date">Apr 2023 – Present</span>
+                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                </div>
+              </div>
+              <ul class="exp-bullets" role="list" data-i18n-list="bj_bullets">
+                <li>Acted as <strong>product owner</strong>: led requirements gathering, backlog definition, and narrative development — applying agile project management practices to a creative product environment.</li>
+                <li><strong>Secured investor funding</strong> covering one year of development through pitch preparation and negotiation with stakeholders.</li>
+                <li>Managed project roadmap, vision alignment, and deliverables across a team of contributors — maintaining scope discipline on a long-horizon creative project.</li>
+                <li>Designed game environments using <strong>Blender and Unreal Engine</strong>; built and maintained the project website to support community visibility and stakeholder communication.</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section-gap">
+          <h2 class="section-label" data-i18n="sec_education">Education &amp; Certification</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+
+            <div class="edu-card reveal">
+              <div>
+                <p class="edu-degree-main" data-i18n="edu1_degree">Master's in Heritage Anthropology</p>
+                <p class="edu-school-main" data-i18n="edu_school">University of Elhadj Lakhdar, Batna</p>
+              </div>
+              <p class="edu-date-main">Sep 2020 – Sep 2022</p>
+            </div>
+
+            <div class="edu-card reveal">
+              <div>
+                <p class="edu-degree-main" data-i18n="edu2_degree">Bachelor's in Amazighe Linguistics &amp; Culture</p>
+                <p class="edu-school-main" data-i18n="edu_school">University of Elhadj Lakhdar, Batna</p>
+              </div>
+              <p class="edu-date-main">Sep 2017 – Jun 2020</p>
+            </div>
+
+            <div class="cert-card reveal">
+              <div class="cert-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              </div>
+              <div class="cert-body">
+                <p class="cert-title-main" data-i18n="cert_name">Competence Badge — Project Manager &amp; QA Engineer</p>
+                <p class="cert-issuer-main">Lasting Dynamics Academy</p>
+              </div>
+              <p class="cert-date-main">Apr – Jun 2024</p>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="skills">
+        <div class="sidebar-section">
+          <h2 class="sidebar-title" data-i18n="sec_skills">Core Skills</h2>
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_qa">QA &amp; Testing</p>
+            <div class="skill-chips">
+              <span class="chip chip--primary">Cypress E2E</span>
+              <span class="chip chip--primary">Test Planning</span>
+              <span class="chip chip--primary">REST API Testing</span>
+              <span class="chip chip--primary">Manual QA</span>
+              <span class="chip chip--primary">Defect Triage</span>
+              <span class="chip chip--primary">UAT</span>
+              <span class="chip chip--primary">Regression Testing</span>
+              <span class="chip chip--primary">Test Automation</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_pm">Project Management</p>
+            <div class="skill-chips">
+              <span class="chip">Gantt Roadmaps</span>
+              <span class="chip">Backlog Grooming</span>
+              <span class="chip">Stakeholder Communication</span>
+              <span class="chip">Sprint Planning</span>
+              <span class="chip">Task Prioritization</span>
+              <span class="chip">Risk &amp; Emergency Mitigation</span>
+              <span class="chip">Effort Allocation</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_process">Process &amp; Methodology</p>
+            <div class="skill-chips">
+              <span class="chip">Agile / Scrum</span>
+              <span class="chip">Kanban</span>
+              <span class="chip">TDD</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_tools">Tools &amp; Platforms</p>
+            <div class="skill-chips">
+              <span class="chip">Jira</span>
+              <span class="chip">Postman</span>
+              <span class="chip">Git / GitHub</span>
+              <span class="chip">Asana</span>
+              <span class="chip">Roundrush</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Figma</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Google Sheets &amp; Docs</span>
+              <span class="chip">AI Agentic Tools</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_tech">Technical</p>
+            <div class="skill-chips">
+              <span class="chip">JavaScript</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">HTML / CSS</span>
+              <span class="chip">Bash / Shell</span>
+              <span class="chip">Linux</span>
+              <span class="chip">C</span>
+              <span class="chip">C#</span>
+              <span class="chip">SQL</span>
+              <span class="chip">DBML</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2 class="sidebar-title" data-i18n="sec_languages">Languages</h2>
+          <div class="lang-item"><span class="lang-name" data-i18n="lang_en">English</span><span class="lang-level-txt" data-i18n="level_fluent">Fluent</span></div>
+          <div class="lang-item"><span class="lang-name" data-i18n="lang_fr">French</span><span class="lang-level-txt" data-i18n="level_fluent">Fluent</span></div>
+          <div class="lang-item"><span class="lang-name" data-i18n="lang_ar">Arabic</span><span class="lang-level-txt" data-i18n="level_fluent">Fluent</span></div>
+          <div class="lang-item"><span class="lang-name" data-i18n="lang_kab">Amazighe</span><span class="lang-level-txt" data-i18n="level_native">Native</span></div>
+        </div>
+
+        <div class="sidebar-section" style="margin-top:var(--space-6)">
+          <button class="dl-btn" onclick="window.print()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+            <span data-i18n="btn_save">Save as PDF</span>
+          </button>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer style="border-top:1px solid var(--color-divider);padding:var(--space-8) 0;margin-top:var(--space-4)">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)">
+    <p style="font-size:var(--text-xs);color:var(--color-text-faint)">© 2026 Youba Bakhouche · youba.online</p>
+    <p style="font-size:var(--text-xs);color:var(--color-text-faint)" data-i18n="footer_open">Open to remote QA opportunities</p>
+  </div>
+</footer>
+
+<script>
+const T = {
+  en: {
+    nav_experience:"Experience",nav_projects:"Projects",nav_skills:"Skills",nav_education:"Education",
+    kicker:"QA Engineer & Team Lead",
+    hero_title:"Test Automation · QA Strategy · Agile Delivery",
+    hero_summary:`QA engineer and team lead with <strong>2+ years of hands-on experience</strong> owning test strategy, building <strong>Cypress E2E automation suites</strong>, and validating web product quality from sprint planning through production release. Brings a technical edge in <strong>REST API testing, AI-assisted test planning</strong>, and cross-functional collaboration with product and engineering teams. Known for <strong>high adaptability and quick learning capacity</strong> — picking up new tools, domains, and workflows rapidly across both technical and product environments.`,
+    location:"Boumerdès, Algeria · Remote",
+    score_title:"CV Score",score_sub:"Target: QA Engineer<br>Optimized for ATS",
+    sec_experience:"Experience",sec_projects:"Independent Projects",
+    sec_education:"Education & Certification",sec_skills:"Core Skills",sec_languages:"Languages",
+    sg_qa:"QA & Testing",sg_pm:"Project Management",sg_process:"Process & Methodology",
+    sg_tools:"Tools & Platforms",sg_tech:"Technical",
+    ld_role:"QA Engineer & Team Lead",cap_role:"Project Manager",bj_role:"Director & Product Owner",
+    tag_remote:"Remote",loc_algeria:"Algeria",bj_date:"Apr 2023 – Present",paused:"(Paused)",
+    lang_en:"English",lang_fr:"French",lang_ar:"Arabic",lang_kab:"Amazighe",
+    level_fluent:"Fluent",level_native:"Native",
+    edu1_degree:"Master's in Heritage Anthropology",
+    edu2_degree:"Bachelor's in Amazighe Linguistics & Culture",
+    edu_school:"University of Elhadj Lakhdar, Batna",
+    cert_name:"Competence Badge — Project Manager & QA Engineer",
+    btn_save:"Save as PDF",footer_open:"Open to remote QA opportunities",
+    ld_bullets:[
+      "Owned end-to-end QA for <strong>3+ web products</strong>, leading test planning, defect triage, and release readiness across sprints — reducing release-blocking regressions through systematic coverage.",
+      "Designed and maintained a <strong>Cypress E2E automation suite</strong> covering critical user flows, cutting manual regression time by an estimated <strong>40%</strong> per release cycle.",
+      "Integrated <strong>AI-assisted workflows</strong> (test case generation, risk-based prioritization) that accelerated QA planning speed and improved test case relevance for new features.",
+      "Led <strong>REST API testing</strong> using Postman, validating integration contracts and edge cases across service boundaries before frontend delivery.",
+      "Mentored team members on QA best practices, acceptance criteria writing, and defect reporting; collaborated directly with product, design, and engineering on requirements and risk analysis."
+    ],
+    cap_bullets:[
+      "Managed a <strong>cross-functional team</strong> of market study experts and artisan instructors, keeping project execution aligned with scope, milestones, and delivery timelines.",
+      "Translated customer requirements into clear production specs for artisans — directly parallel to writing user stories and acceptance criteria in software delivery.",
+      "Coordinated stakeholder communication between CAPDEL leadership and third-party partners, ensuring alignment on deliverables and follow-up actions.",
+      "Handled <strong>end-to-end sales operations</strong> including order management, delivery coordination, and acceptance validation — applying structured quality checks to product outputs."
+    ],
+    bj_bullets:[
+      "Acted as <strong>product owner</strong>: led requirements gathering, backlog definition, and narrative development — applying agile project management practices to a creative product environment.",
+      "<strong>Secured investor funding</strong> covering one year of development through pitch preparation and negotiation with stakeholders.",
+      "Managed project roadmap, vision alignment, and deliverables across a team of contributors — maintaining scope discipline on a long-horizon creative project.",
+      "Designed game environments using <strong>Blender and Unreal Engine</strong>; built and maintained the project website to support community visibility and stakeholder communication."
+    ]
+  },
+  fr: {
+    nav_experience:"Expérience",nav_projects:"Projets",nav_skills:"Compétences",nav_education:"Formation",
+    kicker:"Ingénieur QA & Team Lead",
+    hero_title:"Automatisation · Stratégie QA · Livraison Agile",
+    hero_summary:`Ingénieur QA et team lead avec <strong>plus de 2 ans d'expérience</strong> dans la stratégie de test, le développement de <strong>suites E2E Cypress</strong> et la validation de la qualité produit du sprint à la mise en production. Maîtrise des <strong>tests REST API, de la planification QA assistée par IA</strong>, et de la collaboration transverse. Reconnu pour sa <strong>grande adaptabilité et sa rapidité d'apprentissage</strong>.`,
+    location:"Boumerdès, Algérie · Distanciel",
+    score_title:"Score CV",score_sub:"Cible : Ingénieur QA<br>Optimisé ATS",
+    sec_experience:"Expérience",sec_projects:"Projets Personnels",
+    sec_education:"Formation & Certification",sec_skills:"Compétences Clés",sec_languages:"Langues",
+    sg_qa:"QA & Tests",sg_pm:"Gestion de Projet",sg_process:"Méthodes & Processus",
+    sg_tools:"Outils & Plateformes",sg_tech:"Technique",
+    ld_role:"Ingénieur QA & Team Lead",cap_role:"Chef de Projet",bj_role:"Directeur & Product Owner",
+    tag_remote:"Distanciel",loc_algeria:"Algérie",bj_date:"Avr 2023 – Présent",paused:"(En pause)",
+    lang_en:"Anglais",lang_fr:"Français",lang_ar:"Arabe",lang_kab:"Amazighe",
+    level_fluent:"Courant",level_native:"Langue maternelle",
+    edu1_degree:"Master en Anthropologie du Patrimoine",
+    edu2_degree:"Licence en Linguistique et Culture Amazighe",
+    edu_school:"Université Hadj Lakhdar, Batna",
+    cert_name:"Badge de Compétences — Chef de Projet & Ingénieur QA",
+    btn_save:"Enregistrer en PDF",footer_open:"Ouvert aux opportunités QA à distance",
+    ld_bullets:[
+      "Responsable du QA de bout en bout sur <strong>3+ produits web</strong> : planification des tests, triage des défauts et validation avant release.",
+      "Conception et maintenance d'une <strong>suite E2E Cypress</strong> couvrant les flux critiques, réduisant le temps de régression manuelle d'environ <strong>40%</strong> par cycle.",
+      "Intégration de <strong>workflows IA</strong> (génération de cas de test, priorisation par risque) accélérant la planification QA.",
+      "Tests <strong>REST API</strong> avec Postman : validation des contrats d'intégration et des cas limites avant livraison frontend.",
+      "Accompagnement de l'équipe sur les bonnes pratiques QA ; collaboration directe avec les équipes produit, design et engineering."
+    ],
+    cap_bullets:[
+      "Management d'une <strong>équipe pluridisciplinaire</strong> en maintenant l'alignement sur les objectifs, le périmètre et les délais.",
+      "Traduction des besoins clients en spécifications de production claires.",
+      "Coordination de la communication avec les responsables CAPDEL et les partenaires tiers.",
+      "Gestion <strong>des opérations commerciales</strong> avec contrôles qualité structurés sur les livrables."
+    ],
+    bj_bullets:[
+      "Rôle de <strong>product owner</strong> : collecte des besoins, définition du backlog et développement narratif.",
+      "<strong>Financement investisseur obtenu</strong> couvrant une année de développement.",
+      "Direction du projet, alignement de la vision et gestion des livrables sur un projet créatif de longue haleine.",
+      "Conception d'environnements sous <strong>Blender et Unreal Engine</strong> ; création et maintenance du site web."
+    ]
+  },
+  ar: {
+    nav_experience:"الخبرة",nav_projects:"المشاريع",nav_skills:"المهارات",nav_education:"التعليم",
+    kicker:"مهندس ضمان الجودة وقائد فريق",
+    hero_title:"أتمتة الاختبارات · استراتيجية الجودة · التسليم الرشيق",
+    hero_summary:`مهندس QA وقائد فريق بخبرة عملية تمتد <strong>أكثر من سنتين</strong> في قيادة استراتيجية الاختبار، وبناء <strong>مجموعات اختبار Cypress E2E</strong>، والتحقق من جودة المنتجات. يتميز بـ<strong>قدرة تكيّف عالية وسرعة التعلّم</strong>.`,
+    location:"بومرداس، الجزائر · عن بُعد",
+    score_title:"تقييم السيرة",score_sub:"الهدف: مهندس QA<br>محسّن للـ ATS",
+    sec_experience:"الخبرة المهنية",sec_projects:"المشاريع المستقلة",
+    sec_education:"التعليم والشهادات",sec_skills:"المهارات الأساسية",sec_languages:"اللغات",
+    sg_qa:"ضمان الجودة والاختبارات",sg_pm:"إدارة المشاريع",sg_process:"المنهجيات والعمليات",
+    sg_tools:"الأدوات والمنصات",sg_tech:"التقنية",
+    ld_role:"مهندس QA وقائد فريق",cap_role:"مدير مشروع",bj_role:"مدير ومالك المنتج",
+    tag_remote:"عن بُعد",loc_algeria:"الجزائر",bj_date:"أبريل 2023 – حتى الآن",paused:"(متوقف)",
+    lang_en:"الإنجليزية",lang_fr:"الفرنسية",lang_ar:"العربية",lang_kab:"الأمازيغية",
+    level_fluent:"طليق",level_native:"اللغة الأم",
+    edu1_degree:"ماجستير في أنثروبولوجيا التراث",
+    edu2_degree:"ليسانس في اللسانيات والثقافة الأمازيغية",
+    edu_school:"جامعة الحاج لخضر، باتنة",
+    cert_name:"شارة كفاءة — مدير مشروع ومهندس QA",
+    btn_save:"حفظ كـ PDF",footer_open:"منفتح على فرص QA عن بُعد",
+    ld_bullets:[
+      "تولّى QA الشامل لـ<strong>أكثر من 3 منتجات ويب</strong>، بقيادة تخطيط الاختبارات وتصنيف العيوب والتحقق من جاهزية الإصدار.",
+      "صمّم وصان <strong>مجموعة اختبارات Cypress E2E</strong> تغطي المسارات الحيوية، مما خفّض وقت الاختبار اليدوي بنحو <strong>40%</strong>.",
+      "دمج <strong>سير عمل مدعومة بالذكاء الاصطناعي</strong> لتوليد حالات الاختبار والتحديد بناءً على المخاطر.",
+      "قاد <strong>اختبارات REST API</strong> باستخدام Postman للتحقق من عقود التكامل.",
+      "علّم أعضاء الفريق أفضل ممارسات QA؛ تعاون مع فرق المنتج والتصميم والهندسة."
+    ],
+    cap_bullets:[
+      "أدار <strong>فريقاً متعدد التخصصات</strong> مع الحفاظ على التوافق مع الأهداف والنطاق والجداول الزمنية.",
+      "ترجم متطلبات العملاء إلى مواصفات إنتاج واضحة.",
+      "نسّق التواصل بين قيادة CAPDEL والشركاء الخارجيين.",
+      "أدار <strong>عمليات المبيعات الكاملة</strong> مع تطبيق فحوصات جودة منهجية."
+    ],
+    bj_bullets:[
+      "أدّى دور <strong>مالك المنتج</strong>: قاد جمع المتطلبات وتعريف backlog والتطوير السردي.",
+      "<strong>حصل على تمويل من مستثمرين</strong> يغطي عاماً كاملاً من التطوير.",
+      "أدار خارطة الطريق ومواءمة الرؤية والمخرجات.",
+      "صمّم بيئات اللعب باستخدام <strong>Blender وUnreal Engine</strong>؛ أنشأ وصان موقع المشروع."
+    ]
+  }
+};
+
+function applyLang(lang) {
+  const t = T[lang];
+  const isRTL = lang === 'ar';
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+  document.body.dataset.lang = lang;
+  document.body.style.fontFamily = isRTL ? "'Noto Sans Arabic','DM Sans',sans-serif" : '';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t[el.dataset.i18n];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-list]').forEach(ul => {
+    const bullets = t[ul.dataset.i18nList];
+    if (!bullets) return;
+    ul.querySelectorAll('li').forEach((li, i) => { if (bullets[i]) li.innerHTML = bullets[i]; });
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+
+(function(){
+  const t = document.querySelector('[data-theme-toggle]'), r = document.documentElement;
+  let d = r.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  r.setAttribute('data-theme', d);
+  function icon(th){ return th==='dark'
+    ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+  if(t){ t.innerHTML=icon(d); t.addEventListener('click',()=>{ d=d==='dark'?'light':'dark'; r.setAttribute('data-theme',d); t.innerHTML=icon(d); }); }
+})();
+
+(function(){
+  const arc=document.getElementById('score-arc'), num=document.getElementById('score-num');
+  if(!arc) return;
+  const score=78, c=213.6;
+  new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ arc.style.strokeDashoffset=c-(score/100)*c; let i=0; const iv=setInterval(()=>{ num.textContent=Math.min(i+=2,score); if(i>=score)clearInterval(iv); },18); } }); },{threshold:.5}).observe(arc);
+})();
+
+(function(){
+  const obs=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('is-visible'),i*80); obs.unobserve(e.target); } }); },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+</script>
+</body>
+</html>
