@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Youba Bakhouche — QA Engineer</title>
+  <title>Youba Bakhouche — QA Automation Engineer | Cypress | API Testing | Team Lead</title>
   <meta name="description" content="CV of Youba Bakhouche — QA Engineer & Team Lead specializing in test automation, Cypress E2E, API testing, and Agile delivery." />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..400&family=Noto+Sans+Arabic:wght@300..700&display=swap" rel="stylesheet">
@@ -47,7 +49,7 @@
     .container{max-width:920px;margin-inline:auto;padding-inline:var(--space-6)}
 
     /* TOPBAR */
-    .topbar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--color-bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(127,122,118,.12);padding-block:var(--space-3)}
+    .topbar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--color-bg) 85%,transparent);border-bottom:1px solid rgba(127,122,118,.12);padding-block:var(--space-3)}
     .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
     .topbar-logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text)}
     .topbar-logo span{font-family:var(--font-display);font-size:var(--text-sm);font-style:italic;color:var(--color-text-muted)}
@@ -235,7 +237,17 @@
 
     @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-score-card{display:none}.cv-body{grid-template-columns:1fr}.sidebar{position:static}.topbar-nav{display:none}}
     @media(max-width:480px){.exp-header{flex-direction:column}.exp-meta{align-items:flex-start}.edu-card{flex-direction:column}.edu-date-main{text-align:left}}
-  </style>
+  .section-gap{content-visibility:auto;contain-intrinsic-size:0 400px}.topbar{contain:layout style}.sidebar{contain:layout style}.reveal{will-change:opacity,transform}.reveal.is-visible{will-change:auto}
+/* ── EXP HEADER LAYOUT FIX ── */
+.exp-header{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4)}
+.exp-header-top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+.exp-company-row{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-1)}
+.exp-meta{display:flex;flex-direction:row;align-items:center;gap:var(--space-2);flex-shrink:0;flex-wrap:wrap}
+.exp-date{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
+.exp-location{font-size:var(--text-xs);color:var(--color-text-faint)}
+.exp-location::before{content:"·";margin-right:var(--space-2);opacity:.5}
+[dir=rtl] .exp-location::before{margin-right:0;margin-left:var(--space-2)}
+</style>
 </head>
 <body data-lang="en">
 
@@ -276,10 +288,10 @@
     <div class="container">
       <div class="hero-inner">
         <div>
-          <p class="hero-kicker" data-i18n="kicker">QA Engineer &amp; Team Lead</p>
+          <p class="hero-kicker" data-i18n="kicker">QA Automation Engineer | Cypress | API Testing | Team Lead</p>
           <h1 class="hero-name">Youba <em>Bakhouche</em></h1>
           <p class="hero-title" data-i18n="hero_title">Test Automation · QA Strategy · Agile Delivery</p>
-          <p class="hero-summary" data-i18n="hero_summary">QA engineer and team lead with <strong>2+ years of hands-on experience</strong> owning test strategy, building <strong>Cypress E2E automation suites</strong>, and validating web product quality from sprint planning through production release. Brings a technical edge in <strong>REST API testing, AI-assisted test planning</strong>, and cross-functional collaboration with product and engineering teams. Known for <strong>high adaptability and quick learning capacity</strong> — picking up new tools, domains, and workflows rapidly across both technical and product environments.</p>
+          <p class="hero-summary" data-i18n="hero_summary">Results-driven QA Automation Engineer with <strong>2+ years of experience</strong> owning end-to-end quality assurance across <strong>3 web products</strong> in fintech and SaaS environments. Built and maintained <strong>Cypress E2E automation suites</strong>, led a QA team, and contributed to product ownership and backlog management. Proven track record of <strong>reducing regression time by ~80%</strong>, preventing production bugs, and aligning QA strategy with business goals.</p>
           <div class="hero-contacts">
             <a href="mailto:youba.bakhouche.99@gmail.com" class="contact-pill">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -316,41 +328,44 @@
 
             <li class="exp-entry reveal">
               <div class="exp-header">
-                <div>
-                  <p class="exp-role" data-i18n="ld_role">QA Engineer &amp; Team Lead</p>
-                  <p class="exp-company">Lasting Dynamics</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-tag" data-i18n="tag_remote">Remote</span>
-                  <span class="exp-date">Aug 2024 – Apr 2026</span>
-                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-                </div>
-              </div>
+          <div class="exp-header-top">
+            <p class="exp-role" data-i18n="ld_role">QA Automation Engineer | Cypress | API Testing | Team Lead</p>
+          </div>
+          <div class="exp-company-row">
+            <p class="exp-company">Lasting Dynamics</p>
+            <span class="exp-tag" data-i18n="tag_remote">Remote</span>
+            <div class="exp-meta">
+              <span class="exp-date">Aug 2024 – Apr 2026</span>
+              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+            </div>
+          </div>
+        </div>
               <ul class="exp-bullets" role="list" data-i18n-list="ld_bullets">
-                <li>Owned end-to-end QA for <strong>3+ web products</strong>, leading test planning, defect triage, and release readiness across sprints — reducing release-blocking regressions through systematic coverage.</li>
-                <li>Designed and maintained a <strong>Cypress E2E automation suite</strong> covering critical user flows, cutting manual regression time by an estimated <strong>40%</strong> per release cycle.</li>
-                <li>Integrated <strong>AI-assisted workflows</strong> (test case generation, risk-based prioritization) that accelerated QA planning speed and improved test case relevance for new features.</li>
-                <li>Led <strong>REST API testing</strong> using Postman, validating integration contracts and edge cases across service boundaries before frontend delivery.</li>
-                <li>Mentored team members on QA best practices, acceptance criteria writing, and defect reporting; collaborated directly with product, design, and engineering on requirements and risk analysis.</li>
+                <li>Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>10+ releases</strong> and eliminating critical production escapes.</li>
+                <li>Built and maintained a <strong>Cypress E2E automation suite</strong> covering critical payment and user flows, reducing manual regression time by <strong>~80%</strong> per release cycle.</li>
+                <li>Conducted <strong>REST API testing</strong> (Postman) across <strong>GivePayments, Roundrush, and Ronda</strong> — validating integration contracts and catching edge-case defects before frontend delivery.</li>
+                <li>Integrated <strong>AI-assisted QA workflows</strong> (test case generation, risk-based prioritization) accelerating sprint QA planning and improving coverage relevance for new features.</li>
+                <li>Mentored <strong>Team Mates</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.</li>
               </ul>
             </li>
 
             <li class="exp-entry reveal">
               <div class="exp-header">
-                <div>
-                  <p class="exp-role" data-i18n="cap_role">Project Manager</p>
-                  <p class="exp-company">CAPDEL</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-date">Aug 2022 – Jan 2023</span>
-                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-                </div>
-              </div>
+          <div class="exp-header-top">
+            <p class="exp-role" data-i18n="cap_role">Project Manager</p>
+          </div>
+          <div class="exp-company-row">
+            <p class="exp-company">CAPDEL - Artisanal tapistry market study</p>
+            <div class="exp-meta">
+              <span class="exp-date">Aug 2022 – Jan 2023</span>
+              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+            </div>
+          </div>
+        </div>
               <ul class="exp-bullets" role="list" data-i18n-list="cap_bullets">
-                <li>Managed a <strong>cross-functional team</strong> of market study experts and artisan instructors, keeping project execution aligned with scope, milestones, and delivery timelines.</li>
-                <li>Translated customer requirements into clear production specs for artisans — directly parallel to writing user stories and acceptance criteria in software delivery.</li>
-                <li>Coordinated stakeholder communication between CAPDEL leadership and third-party partners, ensuring alignment on deliverables and follow-up actions.</li>
-                <li>Handled <strong>end-to-end sales operations</strong> including order management, delivery coordination, and acceptance validation — applying structured quality checks to product outputs.</li>
+                <li>Managed <strong>stakeholder communication</strong> and project coordination between CAPDEL leadership and third-party partners, ensuring alignment on deliverables, milestones, and follow-up actions.</li>
+                <li>Gathered and translated business requirements into structured deliverables. </li>
+                <li> Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.</li>
               </ul>
             </li>
 
@@ -363,26 +378,38 @@
           <ol class="experience-list" role="list">
             <li class="exp-entry reveal">
               <div class="exp-header">
-                <div>
-                  <p class="exp-role" data-i18n="bj_role">Director &amp; Product Owner</p>
-                  <p class="exp-company">Brokenjars Interactive <span style="font-weight:400;color:var(--color-text-faint)" data-i18n="paused">(Paused)</span></p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-date" data-i18n="bj_date">Apr 2023 – Present</span>
-                  <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-                </div>
-              </div>
+          <div class="exp-header-top">
+            <p class="exp-role" data-i18n="bj_role">Director &amp; Product Owner</p>
+          </div>
+          <div class="exp-company-row">
+            <p class="exp-company">Brokenjars Interactive <span style="font-weight:400;color:var(--color-text-faint)" data-i18n="paused">(Paused)</span></p>
+            <div class="exp-meta">
+              <span class="exp-date" data-i18n="bj_date">Apr 2023 – Present</span>
+              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+            </div>
+          </div>
+        </div>
               <ul class="exp-bullets" role="list" data-i18n-list="bj_bullets">
-                <li>Acted as <strong>product owner</strong>: led requirements gathering, backlog definition, and narrative development — applying agile project management practices to a creative product environment.</li>
-                <li><strong>Secured investor funding</strong> covering one year of development through pitch preparation and negotiation with stakeholders.</li>
-                <li>Managed project roadmap, vision alignment, and deliverables across a team of contributors — maintaining scope discipline on a long-horizon creative project.</li>
-                <li>Designed game environments using <strong>Blender and Unreal Engine</strong>; built and maintained the project website to support community visibility and stakeholder communication.</li>
+                <li>Acted as <strong>Product Owner</strong> — led requirements gathering, backlog definition, and roadmap planning using Agile project management practices in a creative product environment.</li>
+                <li><strong>Secured investor funding</strong> covering one year of development through pitch preparation and stakeholder negotiation.</li>
+                <li>Managed product vision, roadmap, and deliverables across a cross-functional team — maintaining scope discipline and sprint prioritization on a long-horizon project.</li>
+                <li>Coordinated a team of designers, developers, and artists; defined narrative and feature requirements as part of the full product specification.</li>
               </ul>
             </li>
           </ol>
         </section>
 
         <!-- EDUCATION -->
+        <section id="technical-projects" class="section-gap">
+          <h2 class="section-label">Technical Projects</h2>
+          <ul class="exp-bullets" role="list">
+            <li><strong>Cypress E2E Automation Framework</strong> — Built a modular Cypress suite for a fintech web platform covering critical payment flows; reduced manual regression effort by ~80% per release cycle.</li>
+            <li><strong>API Testing Suite (Postman / REST)</strong> — Designed and executed API test collections across GivePayments, Roundrush, and Ronda; documented edge cases across error handling, voiding, and reversal flows.</li>
+            <li><strong>AI-Assisted QA Workflow</strong> — Implemented AI tooling (ChatGPT, GitHub Copilot) to accelerate test case generation and risk-based defect classification within Agile sprints.</li>
+            <li><strong>CI/CD Testing Integration</strong> — Integrated automated Cypress test runs into a CI pipeline (GitHub Actions / Docker), enabling faster feedback loops on pull requests.</li>
+          </ul>
+        </section>
+
         <section id="education" class="section-gap">
           <h2 class="section-label" data-i18n="sec_education">Education &amp; Certification</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-4)">
@@ -424,69 +451,55 @@
         <div class="sidebar-section">
           <h2 class="sidebar-title" data-i18n="sec_skills">Core Skills</h2>
           <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_qa">QA &amp; Testing</p>
+            <p class="skill-group-label" data-i18n="sg_qa">QA Automation</p>
             <div class="skill-chips">
-              <span class="chip chip--primary">Cypress E2E</span>
-              <span class="chip chip--primary">Test Planning</span>
-              <span class="chip chip--primary">REST API Testing</span>
-              <span class="chip chip--primary">Manual QA</span>
-              <span class="chip chip--primary">Defect Triage</span>
-              <span class="chip chip--primary">UAT</span>
-              <span class="chip chip--primary">Regression Testing</span>
+              <span class="chip chip--primary">Cypress</span>
               <span class="chip chip--primary">Test Automation</span>
+              <span class="chip chip--primary">E2E Testing</span>
+              <span class="chip chip--primary">Regression Testing</span>
+              <span class="chip chip--primary">UAT</span>
+              <span class="chip chip--primary">Test Strategy</span>
+              <span class="chip chip--primary">API Testing</span>
+              <span class="chip chip--primary">Defect Triage</span>
+              <span class="chip chip--primary">Black-box Testing</span>
+              <span class="chip chip--primary">White-box Testing</span>
             </div>
           </div>
           <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_pm">Project Management</p>
+            <p class="skill-group-label" data-i18n="sg_process">Methodologies</p>
             <div class="skill-chips">
-              <span class="chip">Gantt Roadmaps</span>
-              <span class="chip">Backlog Grooming</span>
-              <span class="chip">Stakeholder Communication</span>
-              <span class="chip">Sprint Planning</span>
-              <span class="chip">Task Prioritization</span>
-              <span class="chip">Risk &amp; Emergency Mitigation</span>
-              <span class="chip">Effort Allocation</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_process">Process &amp; Methodology</p>
-            <div class="skill-chips">
-              <span class="chip">Agile / Scrum</span>
+              <span class="chip">Agile</span>
+              <span class="chip">Scrum</span>
               <span class="chip">Kanban</span>
-              <span class="chip">TDD</span>
+              <span class="chip">Sprint Planning</span>
+              <span class="chip">Requirements Analysis</span>
             </div>
           </div>
           <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_tools">Tools &amp; Platforms</p>
+            <p class="skill-group-label" data-i18n="sg_tools">Tools</p>
             <div class="skill-chips">
               <span class="chip">Jira</span>
               <span class="chip">Postman</span>
               <span class="chip">Git / GitHub</span>
-              <span class="chip">Asana</span>
-              <span class="chip">Roundrush</span>
               <span class="chip">Docker</span>
               <span class="chip">Figma</span>
-              <span class="chip">VS Code</span>
-              <span class="chip">Google Sheets &amp; Docs</span>
-              <span class="chip">AI Agentic Tools</span>
             </div>
           </div>
           <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_tech">Technical</p>
+            <p class="skill-group-label" data-i18n="sg_tech">Programming</p>
             <div class="skill-chips">
               <span class="chip">JavaScript</span>
               <span class="chip">TypeScript</span>
-              <span class="chip">HTML / CSS</span>
-              <span class="chip">Bash / Shell</span>
-              <span class="chip">Linux</span>
               <span class="chip">C</span>
               <span class="chip">C#</span>
+              <span class="chip">HTML &amp; CSS</span>
+              <span class="chip">JSX</span>
+              <span class="chip">TSX</span>
               <span class="chip">SQL</span>
-              <span class="chip">DBML</span>
+              <span class="chip">Bash</span>
             </div>
           </div>
         </div>
-
         <div class="sidebar-section">
           <h2 class="sidebar-title" data-i18n="sec_languages">Languages</h2>
           <div class="lang-item"><span class="lang-name" data-i18n="lang_en">English</span><span class="lang-level-txt" data-i18n="level_fluent">Fluent</span></div>
@@ -500,6 +513,14 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
             <span data-i18n="btn_save">Save as PDF</span>
           </button>
+        </div>
+              <div class="sidebar-section">
+          <h2 class="sidebar-title">Hobbies &amp; Interests</h2>
+          <div class="skill-chips">
+            <span class="chip">🎮 Gaming</span>
+            <span class="chip">🏍️ Motorcycles</span>
+            <span class="chip">🔧 Automotive Mechanics</span>
+          </div>
         </div>
       </aside>
 
@@ -518,9 +539,9 @@
 const T = {
   en: {
     nav_experience:"Experience",nav_projects:"Projects",nav_skills:"Skills",nav_education:"Education",
-    kicker:"QA Engineer & Team Lead",
+    kicker:"QA Automation Engineer | Cypress | API Testing | Team Lead",
     hero_title:"Test Automation · QA Strategy · Agile Delivery",
-    hero_summary:`QA engineer and team lead with <strong>2+ years of hands-on experience</strong> owning test strategy, building <strong>Cypress E2E automation suites</strong>, and validating web product quality from sprint planning through production release. Brings a technical edge in <strong>REST API testing, AI-assisted test planning</strong>, and cross-functional collaboration with product and engineering teams. Known for <strong>high adaptability and quick learning capacity</strong> — picking up new tools, domains, and workflows rapidly across both technical and product environments.`,
+    hero_summary:`Results-driven QA Automation Engineer with <strong>2+ years of experience</strong> owning end-to-end quality assurance across <strong>3 web products</strong> in fintech and SaaS environments. Built and maintained <strong>Cypress E2E automation suites</strong>, led a QA team, and contributed to product ownership and backlog management. Proven track record of <strong>reducing regression time by ~80%</strong>, preventing production bugs, and aligning QA strategy with business goals.`,
     location:"Boumerdès, Algeria · Remote",
     score_title:"CV Score",score_sub:"Target: QA Engineer<br>Optimized for ATS",
     sec_experience:"Experience",sec_projects:"Independent Projects",
@@ -537,30 +558,28 @@ const T = {
     cert_name:"Competence Badge — Project Manager & QA Engineer",
     btn_save:"Save as PDF",footer_open:"Open to remote QA opportunities",
     ld_bullets:[
-      "Owned end-to-end QA for <strong>3+ web products</strong>, leading test planning, defect triage, and release readiness across sprints — reducing release-blocking regressions through systematic coverage.",
-      "Designed and maintained a <strong>Cypress E2E automation suite</strong> covering critical user flows, cutting manual regression time by an estimated <strong>40%</strong> per release cycle.",
-      "Integrated <strong>AI-assisted workflows</strong> (test case generation, risk-based prioritization) that accelerated QA planning speed and improved test case relevance for new features.",
-      "Led <strong>REST API testing</strong> using Postman, validating integration contracts and edge cases across service boundaries before frontend delivery.",
-      "Mentored team members on QA best practices, acceptance criteria writing, and defect reporting; collaborated directly with product, design, and engineering on requirements and risk analysis."
+      `Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>10+ releases</strong> and eliminating critical production escapes.`,
+      `Built and maintained a <strong>Cypress E2E automation suite</strong> covering critical payment and user flows, reducing manual regression time by <strong>~0%</strong> per release cycle.`,
+      `Conducted <strong>REST API testing</strong> (Postman) across <strong>GivePayments, Roundrush, and Ronda</strong> — validating integration contracts and catching edge-case defects before frontend delivery.`,
+      `Integrated <strong>AI-assisted QA workflows</strong> (test case generation, risk-based prioritization) accelerating sprint QA planning and improving coverage relevance for new features.`,
+      `Mentored <strong>Team Mates</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.`
     ],
     cap_bullets:[
-      "Managed a <strong>cross-functional team</strong> of market study experts and artisan instructors, keeping project execution aligned with scope, milestones, and delivery timelines.",
-      "Translated customer requirements into clear production specs for artisans — directly parallel to writing user stories and acceptance criteria in software delivery.",
-      "Coordinated stakeholder communication between CAPDEL leadership and third-party partners, ensuring alignment on deliverables and follow-up actions.",
-      "Handled <strong>end-to-end sales operations</strong> including order management, delivery coordination, and acceptance validation — applying structured quality checks to product outputs."
+      `Managed <strong>stakeholder communication</strong> and project coordination between CAPDEL leadership and third-party partners, ensuring alignment on deliverables, milestones, and follow-up actions.`,
+      `Gathered and translated business requirements into structured deliverables .`, `Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.`
     ],
     bj_bullets:[
-      "Acted as <strong>product owner</strong>: led requirements gathering, backlog definition, and narrative development — applying agile project management practices to a creative product environment.",
-      "<strong>Secured investor funding</strong> covering one year of development through pitch preparation and negotiation with stakeholders.",
-      "Managed project roadmap, vision alignment, and deliverables across a team of contributors — maintaining scope discipline on a long-horizon creative project.",
-      "Designed game environments using <strong>Blender and Unreal Engine</strong>; built and maintained the project website to support community visibility and stakeholder communication."
+      `Acted as <strong>Product Owner</strong> — led requirements gathering, backlog definition, and roadmap planning using Agile project management practices in a creative product environment.`,
+      `<strong>Secured investor funding</strong> covering one year of development through pitch preparation and stakeholder negotiation.`,
+      `Managed product vision, roadmap, and deliverables across a cross-functional team — maintaining scope discipline and sprint prioritization on a long-horizon project.`,
+      `Coordinated a team of designers, developers, and artists; defined narrative and feature requirements as part of the full product specification.`
     ]
   },
   fr: {
     nav_experience:"Expérience",nav_projects:"Projets",nav_skills:"Compétences",nav_education:"Formation",
-    kicker:"Ingénieur QA & Team Lead",
+    kicker:"Ingénieur QA Automation | Cypress | Tests API | Team Lead",
     hero_title:"Automatisation · Stratégie QA · Livraison Agile",
-    hero_summary:`Ingénieur QA et team lead avec <strong>plus de 2 ans d'expérience</strong> dans la stratégie de test, le développement de <strong>suites E2E Cypress</strong> et la validation de la qualité produit du sprint à la mise en production. Maîtrise des <strong>tests REST API, de la planification QA assistée par IA</strong>, et de la collaboration transverse. Reconnu pour sa <strong>grande adaptabilité et sa rapidité d'apprentissage</strong>.`,
+    hero_summary:`Ingénieur QA Automation avec <strong>3+ ans d'expérience</strong> en charge de la qualité de <strong>3 produits web</strong> en fintech et SaaS. Réduction du temps de régression de <strong>~80%</strong> et zéro bug critique en production.`,
     location:"Boumerdès, Algérie · Distanciel",
     score_title:"Score CV",score_sub:"Cible : Ingénieur QA<br>Optimisé ATS",
     sec_experience:"Expérience",sec_projects:"Projets Personnels",
@@ -577,30 +596,28 @@ const T = {
     cert_name:"Badge de Compétences — Chef de Projet & Ingénieur QA",
     btn_save:"Enregistrer en PDF",footer_open:"Ouvert aux opportunités QA à distance",
     ld_bullets:[
-      "Responsable du QA de bout en bout sur <strong>3+ produits web</strong> : planification des tests, triage des défauts et validation avant release.",
-      "Conception et maintenance d'une <strong>suite E2E Cypress</strong> couvrant les flux critiques, réduisant le temps de régression manuelle d'environ <strong>40%</strong> par cycle.",
-      "Intégration de <strong>workflows IA</strong> (génération de cas de test, priorisation par risque) accélérant la planification QA.",
-      "Tests <strong>REST API</strong> avec Postman : validation des contrats d'intégration et des cas limites avant livraison frontend.",
-      "Accompagnement de l'équipe sur les bonnes pratiques QA ; collaboration directe avec les équipes produit, design et engineering."
+      `Responsable de la <strong>stratégie QA</strong> pour <strong>3 produits web</strong>, couvrant <strong>10+ releases</strong>.`,
+      `Conception d'une <strong>suite E2E Cypress</strong> réduisant la régression manuelle de <strong>~80%</strong>.`,
+      `Tests <strong>REST API</strong> (Postman) sur <strong>GivePayments, Roundrush et Ronda</strong> — validation des contrats d'intégration.`,
+      `Intégration de <strong>workflows QA assistés par IA</strong> accélérant la planification en sprint.`,
+      `Mentorat de <strong>2 ingénieurs QA</strong> sur Cypress et tests boîte noire/blanche.`
     ],
     cap_bullets:[
-      "Management d'une <strong>équipe pluridisciplinaire</strong> en maintenant l'alignement sur les objectifs, le périmètre et les délais.",
-      "Traduction des besoins clients en spécifications de production claires.",
-      "Coordination de la communication avec les responsables CAPDEL et les partenaires tiers.",
-      "Gestion <strong>des opérations commerciales</strong> avec contrôles qualité structurés sur les livrables."
+      `Gestion de la <strong>communication avec les parties prenantes</strong> entre CAPDEL et les partenaires tiers.`,
+      `Collecte et traduction des besoins métier en livrables structurés.`
     ],
     bj_bullets:[
-      "Rôle de <strong>product owner</strong> : collecte des besoins, définition du backlog et développement narratif.",
-      "<strong>Financement investisseur obtenu</strong> couvrant une année de développement.",
-      "Direction du projet, alignement de la vision et gestion des livrables sur un projet créatif de longue haleine.",
-      "Conception d'environnements sous <strong>Blender et Unreal Engine</strong> ; création et maintenance du site web."
+      `Rôle de <strong>Product Owner</strong> — backlog et roadmap Agile.`,
+      `<strong>Financement investisseur obtenu</strong> pour une année de développement.`,
+      `Gestion de produit et livrables sur un projet créatif longue haleine.`,
+      `Coordination d'une équipe pluridisciplinaire avec définition des exigences fonctionnelles.`
     ]
   },
   ar: {
     nav_experience:"الخبرة",nav_projects:"المشاريع",nav_skills:"المهارات",nav_education:"التعليم",
-    kicker:"مهندس ضمان الجودة وقائد فريق",
+    kicker:"مهندس أتمتة ضمان الجودة | Cypress | اختبار API | قائد فريق",
     hero_title:"أتمتة الاختبارات · استراتيجية الجودة · التسليم الرشيق",
-    hero_summary:`مهندس QA وقائد فريق بخبرة عملية تمتد <strong>أكثر من سنتين</strong> في قيادة استراتيجية الاختبار، وبناء <strong>مجموعات اختبار Cypress E2E</strong>، والتحقق من جودة المنتجات. يتميز بـ<strong>قدرة تكيّف عالية وسرعة التعلّم</strong>.`,
+    hero_summary:`مهندس أتمتة ضمان جودة بخبرة <strong>أكثر من 3 سنوات</strong>. بنى <strong>Cypress E2E</strong> وقاد الفريق. حقق <strong>تخفيض 80%</strong> في وقت الاختبار.`,
     location:"بومرداس، الجزائر · عن بُعد",
     score_title:"تقييم السيرة",score_sub:"الهدف: مهندس QA<br>محسّن للـ ATS",
     sec_experience:"الخبرة المهنية",sec_projects:"المشاريع المستقلة",
@@ -617,23 +634,21 @@ const T = {
     cert_name:"شارة كفاءة — مدير مشروع ومهندس QA",
     btn_save:"حفظ كـ PDF",footer_open:"منفتح على فرص QA عن بُعد",
     ld_bullets:[
-      "تولّى QA الشامل لـ<strong>أكثر من 3 منتجات ويب</strong>، بقيادة تخطيط الاختبارات وتصنيف العيوب والتحقق من جاهزية الإصدار.",
-      "صمّم وصان <strong>مجموعة اختبارات Cypress E2E</strong> تغطي المسارات الحيوية، مما خفّض وقت الاختبار اليدوي بنحو <strong>40%</strong>.",
-      "دمج <strong>سير عمل مدعومة بالذكاء الاصطناعي</strong> لتوليد حالات الاختبار والتحديد بناءً على المخاطر.",
-      "قاد <strong>اختبارات REST API</strong> باستخدام Postman للتحقق من عقود التكامل.",
-      "علّم أعضاء الفريق أفضل ممارسات QA؛ تعاون مع فرق المنتج والتصميم والهندسة."
+      `امتلك <strong>استراتيجية QA</strong> لـ<strong>3 منتجات ويب</strong>، دعم <strong>10+ إصدارات</strong>.`,
+      `بنى <strong>Cypress E2E</strong> مما قلل الاختبار اليدوي بـ<strong>80%</strong>.`,
+      `اختبار <strong>REST API</strong> عبر <strong>GivePayments وRoundrush وRonda</strong>.`,
+      `دمج <strong>سير عمل QA بالذكاء الاصطناعي</strong> لتسريع التخطيط.`,
+      `أرشد <strong>مهندسَي QA</strong> على Cypress واختبار الصندوق الأسود/الأبيض.`
     ],
     cap_bullets:[
-      "أدار <strong>فريقاً متعدد التخصصات</strong> مع الحفاظ على التوافق مع الأهداف والنطاق والجداول الزمنية.",
-      "ترجم متطلبات العملاء إلى مواصفات إنتاج واضحة.",
-      "نسّق التواصل بين قيادة CAPDEL والشركاء الخارجيين.",
-      "أدار <strong>عمليات المبيعات الكاملة</strong> مع تطبيق فحوصات جودة منهجية."
+      `إدارة التواصل بين قيادة CAPDEL والشركاء الخارجيين.`,
+      `جمع متطلبات الأعمال وترجمتها إلى مخرجات منظمة.`
     ],
     bj_bullets:[
-      "أدّى دور <strong>مالك المنتج</strong>: قاد جمع المتطلبات وتعريف backlog والتطوير السردي.",
-      "<strong>حصل على تمويل من مستثمرين</strong> يغطي عاماً كاملاً من التطوير.",
-      "أدار خارطة الطريق ومواءمة الرؤية والمخرجات.",
-      "صمّم بيئات اللعب باستخدام <strong>Blender وUnreal Engine</strong>؛ أنشأ وصان موقع المشروع."
+      `دور <strong>مالك المنتج</strong> — backlog وroadmap Agile.`,
+      `<strong>حصل على تمويل مستثمرين</strong> لعام كامل.`,
+      `إدارة رؤية المنتج عبر فريق متعدد التخصصات.`,
+      `تنسيق الفريق وتحديد متطلبات المنتج.`
     ]
   }
 };
