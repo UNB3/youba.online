@@ -82,17 +82,11 @@
     .contact-pill{display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);background:rgba(127,122,118,.05);border:1px solid rgba(127,122,118,.1);padding:var(--space-2) var(--space-3);border-radius:var(--radius-full);text-decoration:none;transition:color var(--transition),background var(--transition),border-color var(--transition)}
     .contact-pill:hover{color:var(--color-primary);background:var(--color-primary-highlight);border-color:rgba(79,152,163,.3)}
 
-    /* SCORE CARD */
-    .hero-score-card{background:var(--color-surface);border:1px solid rgba(127,122,118,.1);border-radius:var(--radius-xl);padding:var(--space-6);min-width:180px;text-align:center;box-shadow:var(--shadow-md);flex-shrink:0}
-    .score-ring{width:80px;height:80px;margin:0 auto var(--space-3);position:relative}
-    .score-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-    .score-ring-bg{stroke:rgba(127,122,118,.1);fill:none}
-    .score-ring-fill{stroke:var(--color-primary);fill:none;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1)}
-    .score-value{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .score-number{font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;line-height:1;color:var(--color-text)}
-    .score-label{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.05em}
-    .score-title{font-size:var(--text-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-1)}
-    .score-sub{font-size:var(--text-xs);color:var(--color-text-faint);line-height:1.5}
+    /* ACHIEVEMENTS */
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:var(--space-4);margin-bottom:var(--space-12);padding:var(--space-6) var(--space-4);background:var(--color-surface);border-radius:var(--radius-xl);border:1px solid var(--color-divider);box-shadow:var(--shadow-sm)}
+    .ach-item{text-align:center}
+    .ach-number{font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--color-primary);line-height:1.2;letter-spacing:-.02em}
+    .ach-label{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-1);display:block}
 
     /* BODY GRID */
     .cv-body{display:grid;grid-template-columns:1fr 275px;gap:var(--space-12);padding-block:var(--space-16);align-items:start}
@@ -108,15 +102,21 @@
     .experience-list{display:flex;flex-direction:column;gap:var(--space-10)}
     .exp-entry{padding-bottom:var(--space-10);border-bottom:1px solid var(--color-divider)}
     .exp-entry:last-child{border-bottom:none;padding-bottom:0}
-    .exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-3)}
+    .exp-header{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4)}
+    .exp-header-top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+    .exp-company-row{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-1)}
+    .exp-meta{display:flex;flex-direction:row;align-items:center;gap:var(--space-2);flex-shrink:0;flex-wrap:wrap}
+    .exp-date{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
+    .exp-location{font-size:var(--text-xs);color:var(--color-text-faint)}
+    .exp-location::before{content:"·";margin-right:var(--space-2);opacity:.5}
+    [dir=rtl] .exp-location::before{margin-right:0;margin-left:var(--space-2)}
     .exp-role{font-family:var(--font-display);font-size:var(--text-lg);font-weight:400;font-style:italic;color:var(--color-text)}
     [dir="rtl"] .exp-role{font-family:var(--font-arabic);font-style:normal}
     .exp-company{font-size:var(--text-sm);font-weight:600;color:var(--color-text);margin-top:var(--space-1)}
-    .exp-meta{display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-1);flex-shrink:0}
-    [dir="rtl"] .exp-meta{align-items:flex-start}
-    .exp-date{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
-    .exp-location{font-size:var(--text-xs);color:var(--color-text-faint)}
     .exp-tag{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;color:var(--color-primary);background:var(--color-primary-highlight);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm)}
+    .exp-link{margin-inline-start:var(--space-2);font-size:var(--text-sm);color:var(--color-text-faint);transition:color var(--transition)}
+    .exp-link a{color:inherit;text-decoration:none}
+    .exp-link a:hover{color:var(--color-primary)}
     .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
     .exp-bullets li{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.65;padding-inline-start:var(--space-5);position:relative}
     .exp-bullets li::before{content:'–';position:absolute;inset-inline-start:0;color:var(--color-primary);font-weight:700}
@@ -147,6 +147,22 @@
     .chip{font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);background:rgba(127,122,118,.05);border:1px solid rgba(127,122,118,.09);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);white-space:nowrap;transition:color var(--transition),background var(--transition)}
     .chip:hover{color:var(--color-primary);background:var(--color-primary-highlight)}
     .chip.chip--primary{color:var(--color-primary);background:var(--color-primary-highlight);border-color:rgba(79,152,163,.25)}
+
+    /* PROFICIENCY MATRIX */
+    .proficiency-item{display:flex;justify-content:space-between;align-items:center;padding:var(--space-1) 0;border-bottom:1px solid rgba(127,122,118,.05)}
+    .proficiency-item:last-child{border-bottom:none}
+    .proficiency-name{font-size:var(--text-xs);font-weight:500;color:var(--color-text)}
+    .proficiency-level{font-size:var(--text-xs);color:var(--color-text-faint);background:rgba(127,122,118,.05);padding:0 var(--space-2);border-radius:var(--radius-sm);line-height:1.6}
+    .proficiency-level.expert{color:var(--color-primary);background:var(--color-primary-highlight);font-weight:600}
+    .proficiency-level.proficient{color:var(--color-text);background:rgba(127,122,118,.08)}
+    .proficiency-level.familiar{color:var(--color-text-faint);background:transparent}
+
+    /* SIDEBAR CERT ITEMS */
+    .cert-item{display:flex;flex-direction:column;padding:var(--space-2) 0;border-bottom:1px solid rgba(127,122,118,.05)}
+    .cert-item:last-child{border-bottom:none}
+    .cert-name{font-size:var(--text-sm);font-weight:500;color:var(--color-text)}
+    .cert-issuer{font-size:var(--text-xs);color:var(--color-text-faint)}
+
     .lang-item{display:flex;justify-content:space-between;align-items:center;padding:var(--space-2) 0;border-bottom:1px solid rgba(127,122,118,.05)}
     .lang-item:last-child{border-bottom:none}
     .lang-name{font-size:var(--text-sm);font-weight:500;color:var(--color-text)}
@@ -177,7 +193,9 @@
       .topbar,.theme-toggle,.lang-switcher,.dl-btn,footer{display:none!important}
       .sidebar{position:static!important}
       .reveal{opacity:1!important;transform:none!important}
-
+      .achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8pt;margin-bottom:12pt;padding:8pt 4pt;background:#f5f5f3;border:1px solid #ddd;border-radius:4pt}
+      .ach-number{font-size:16pt;color:#01696f}
+      .ach-label{font-size:7.5pt;color:#444}
       .hero{padding-block:0 14pt!important;border-bottom:1.5pt solid #01696f!important;margin-bottom:14pt}
       .hero-inner{display:grid;grid-template-columns:1fr auto;gap:16pt;align-items:start}
       .hero-score-card{display:none!important}
@@ -190,13 +208,10 @@
       .hero-contacts{display:flex;flex-wrap:wrap;gap:5pt}
       .contact-pill{font-size:7.5pt;color:#444;border:.75pt solid #ccc;padding:2pt 6pt;border-radius:99pt;background:transparent;text-decoration:none;display:flex;align-items:center;gap:3pt}
       .contact-pill svg{width:9pt;height:9pt}
-
       .container{max-width:100%;padding-inline:0}
       .cv-body{display:grid;grid-template-columns:1fr 155pt;gap:18pt;padding-block:0!important;align-items:start}
-
       .section-label{font-size:7pt;letter-spacing:.13em;color:#01696f;margin-bottom:8pt;padding-bottom:3pt;border-bottom:1pt solid #01696f;display:flex;align-items:center;gap:0}
       .section-label::after,.section-label::before{display:none}
-
       .experience-list{gap:10pt}
       .exp-entry{padding-bottom:10pt;border-bottom:.5pt solid #ddd;page-break-inside:avoid}
       .exp-entry:last-child{border-bottom:none;padding-bottom:0}
@@ -209,7 +224,6 @@
       .exp-bullets li{font-size:8.5pt;color:#444;line-height:1.5;padding-inline-start:10pt}
       .exp-bullets li::before{color:#01696f}
       .exp-bullets li strong{color:#111}
-
       .section-gap{margin-top:12pt}
       .edu-card{padding:7pt 9pt;background:#f5f5f3;border:.75pt solid #ddd;border-radius:5pt;margin-bottom:5pt;display:flex;justify-content:space-between;align-items:flex-start;page-break-inside:avoid}
       .edu-degree-main{font-size:10pt;font-style:italic;color:#111}
@@ -220,7 +234,6 @@
       .cert-title-main{font-size:8.5pt;font-weight:700;color:#111}
       .cert-issuer-main{font-size:7.5pt;color:#444}
       .cert-date-main{font-size:7.5pt;color:#888;white-space:nowrap}
-
       .sidebar-title{font-size:7pt;letter-spacing:.1em;color:#555;margin-bottom:5pt;padding-bottom:2pt;border-bottom:.5pt solid #ddd}
       .sidebar-section{margin-bottom:10pt;page-break-inside:avoid}
       .skill-group{margin-bottom:6pt}
@@ -228,25 +241,22 @@
       .skill-chips{display:flex;flex-wrap:wrap;gap:2.5pt}
       .chip{font-size:6.5pt;color:#444;border:.5pt solid #ccc;padding:1.5pt 4pt;border-radius:3pt;background:transparent;white-space:nowrap}
       .chip.chip--primary{color:#01696f;background:#d6ecea;border-color:rgba(1,105,111,.25)}
+      .proficiency-item{padding:1.5pt 0;border-bottom:.5pt solid #eee;display:flex;justify-content:space-between}
+      .proficiency-name{font-size:7.5pt;color:#111}
+      .proficiency-level{font-size:6.5pt;background:transparent!important;padding:0}
+      .proficiency-level.expert{color:#01696f;background:transparent!important}
+      .cert-item{padding:1.5pt 0;border-bottom:.5pt solid #eee}
+      .cert-name{font-size:7.5pt;color:#111}
+      .cert-issuer{font-size:6.5pt;color:#888}
       .lang-item{padding:2pt 0;border-bottom:.5pt solid #eee;display:flex;justify-content:space-between}
       .lang-name{font-size:8pt;color:#111;font-weight:600}
       .lang-level-txt{font-size:7.5pt;color:#888}
       h2{page-break-after:avoid}
       section{page-break-inside:avoid}
     }
-
     @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-score-card{display:none}.cv-body{grid-template-columns:1fr}.sidebar{position:static}.topbar-nav{display:none}}
     @media(max-width:480px){.exp-header{flex-direction:column}.exp-meta{align-items:flex-start}.edu-card{flex-direction:column}.edu-date-main{text-align:left}}
   .section-gap{content-visibility:auto;contain-intrinsic-size:0 400px}.topbar{contain:layout style}.sidebar{contain:layout style}.reveal{will-change:opacity,transform}.reveal.is-visible{will-change:auto}
-/* ── EXP HEADER LAYOUT FIX ── */
-.exp-header{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-4)}
-.exp-header-top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
-.exp-company-row{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-1)}
-.exp-meta{display:flex;flex-direction:row;align-items:center;gap:var(--space-2);flex-shrink:0;flex-wrap:wrap}
-.exp-date{font-size:var(--text-xs);color:var(--color-text-faint);white-space:nowrap}
-.exp-location{font-size:var(--text-xs);color:var(--color-text-faint)}
-.exp-location::before{content:"·";margin-right:var(--space-2);opacity:.5}
-[dir=rtl] .exp-location::before{margin-right:0;margin-left:var(--space-2)}
 </style>
 </head>
 <body data-lang="en">
@@ -302,7 +312,7 @@
               youba.online
             </a>
             <span class="contact-pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span data-i18n="location">Boumerdès, Algeria · Remote</span>
             </span>
             <a href="tel:+213696333122" class="contact-pill">
@@ -316,6 +326,26 @@
   </section>
 
   <div class="container">
+    <!-- ACHIEVEMENTS BOX -->
+    <section class="achievements-grid reveal">
+      <div class="ach-item">
+        <div class="ach-number" data-i18n="ach1_num">~80%</div>
+        <span class="ach-label" data-i18n="ach1_label">Regression Reduction</span>
+      </div>
+      <div class="ach-item">
+        <div class="ach-number" data-i18n="ach2_num">90%</div>
+        <span class="ach-label" data-i18n="ach2_label">Bugs Caught Pre-Production</span>
+      </div>
+      <div class="ach-item">
+        <div class="ach-number" data-i18n="ach3_num">3</div>
+        <span class="ach-label" data-i18n="ach3_label">Products QA-Owned</span>
+      </div>
+      <div class="ach-item">
+        <div class="ach-number" data-i18n="ach4_num">✔</div>
+        <span class="ach-label" data-i18n="ach4_label">Investor Funding Secured</span>
+      </div>
+    </section>
+
     <div class="cv-body">
 
       <!-- MAIN COLUMN -->
@@ -326,46 +356,48 @@
           <h2 class="section-label" data-i18n="sec_experience">Experience</h2>
           <ol class="experience-list" role="list">
 
+            <!-- Lasting Dynamics -->
             <li class="exp-entry reveal">
               <div class="exp-header">
-          <div class="exp-header-top">
-            <p class="exp-role" data-i18n="ld_role">QA Automation Engineer | Cypress | API Testing | Team Lead</p>
-          </div>
-          <div class="exp-company-row">
-            <p class="exp-company">Lasting Dynamics</p>
-            <span class="exp-tag" data-i18n="tag_remote">Remote</span>
-            <div class="exp-meta">
-              <span class="exp-date">Aug 2024 – Apr 2026</span>
-              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-            </div>
-          </div>
-        </div>
+                <div class="exp-header-top">
+                  <p class="exp-role" data-i18n="ld_role">QA Automation Engineer | Cypress | API Testing | Team Lead</p>
+                </div>
+                <div class="exp-company-row">
+                  <p class="exp-company">Lasting Dynamics</p>
+                  <span class="exp-tag" data-i18n="tag_remote">Remote</span>
+                  <div class="exp-meta">
+                    <span class="exp-date">Aug 2024 – Present</span>
+                    <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                  </div>
+                </div>
+              </div>
               <ul class="exp-bullets" role="list" data-i18n-list="ld_bullets">
-                <li>Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>10+ releases</strong> and eliminating critical production escapes.</li>
+                <li>Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>20+ releases</strong> and eliminating critical production escapes.</li>
                 <li>Built and maintained a <strong>Cypress E2E automation suite</strong> covering critical payment and user flows, reducing manual regression time by <strong>~80%</strong> per release cycle.</li>
                 <li>Conducted <strong>REST API testing</strong> (Postman) across <strong>GivePayments, Roundrush, and Ronda</strong> — validating integration contracts and catching edge-case defects before frontend delivery.</li>
                 <li>Integrated <strong>AI-assisted QA workflows</strong> (test case generation, risk-based prioritization) accelerating sprint QA planning and improving coverage relevance for new features.</li>
-                <li>Mentored <strong>Team Mates</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.</li>
+                <li>Mentored <strong>Team Members</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.</li>
               </ul>
             </li>
 
+            <!-- CAPDEL -->
             <li class="exp-entry reveal">
               <div class="exp-header">
-          <div class="exp-header-top">
-            <p class="exp-role" data-i18n="cap_role">Project Manager</p>
-          </div>
-          <div class="exp-company-row">
-            <p class="exp-company">CAPDEL - Artisanal tapistry market study</p>
-            <div class="exp-meta">
-              <span class="exp-date">Aug 2022 – Jan 2023</span>
-              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-            </div>
-          </div>
-        </div>
+                <div class="exp-header-top">
+                  <p class="exp-role" data-i18n="cap_role">Project Manager</p>
+                </div>
+                <div class="exp-company-row">
+                  <p class="exp-company">CAPDEL - Artisanal tapistry market study</p>
+                  <div class="exp-meta">
+                    <span class="exp-date">Aug 2022 – Jan 2023</span>
+                    <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                  </div>
+                </div>
+              </div>
               <ul class="exp-bullets" role="list" data-i18n-list="cap_bullets">
                 <li>Managed <strong>stakeholder communication</strong> and project coordination between CAPDEL leadership and third-party partners, ensuring alignment on deliverables, milestones, and follow-up actions.</li>
-                <li>Gathered and translated business requirements into structured deliverables. </li>
-                <li> Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.</li>
+                <li>Gathered and translated business requirements into structured deliverables.</li>
+                <li>Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.</li>
               </ul>
             </li>
 
@@ -378,17 +410,17 @@
           <ol class="experience-list" role="list">
             <li class="exp-entry reveal">
               <div class="exp-header">
-          <div class="exp-header-top">
-            <p class="exp-role" data-i18n="bj_role">Director &amp; Product Owner</p>
-          </div>
-          <div class="exp-company-row">
-            <p class="exp-company">Brokenjars Interactive <span style="font-weight:400;color:var(--color-text-faint)" data-i18n="paused">(Paused)</span></p>
-            <div class="exp-meta">
-              <span class="exp-date" data-i18n="bj_date">Apr 2023 – Present</span>
-              <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
-            </div>
-          </div>
-        </div>
+                <div class="exp-header-top">
+                  <p class="exp-role" data-i18n="bj_role">Director &amp; Product Owner <span class="exp-link"><a href="https://youba.online" target="_blank" aria-label="Project link">🔗</a></span></p>
+                </div>
+                <div class="exp-company-row">
+                  <p class="exp-company">Brokenjars Interactive <span style="font-weight:400;color:var(--color-text-faint)" data-i18n="paused">(Paused)</span></p>
+                  <div class="exp-meta">
+                    <span class="exp-date" data-i18n="bj_date">Apr 2023 – Jul 2024</span>
+                    <span class="exp-location" data-i18n="loc_algeria">Algeria</span>
+                  </div>
+                </div>
+              </div>
               <ul class="exp-bullets" role="list" data-i18n-list="bj_bullets">
                 <li>Acted as <strong>Product Owner</strong> — led requirements gathering, backlog definition, and roadmap planning using Agile project management practices in a creative product environment.</li>
                 <li><strong>Secured investor funding</strong> covering one year of development through pitch preparation and stakeholder negotiation.</li>
@@ -399,17 +431,20 @@
           </ol>
         </section>
 
-        <!-- EDUCATION -->
+        <!-- TECHNICAL PROJECTS — now with translations -->
         <section id="technical-projects" class="section-gap">
-          <h2 class="section-label">Technical Projects</h2>
-          <ul class="exp-bullets" role="list">
-            <li><strong>Cypress E2E Automation Framework</strong> — Built a modular Cypress suite for a fintech web platform covering critical payment flows; reduced manual regression effort by ~80% per release cycle.</li>
+          <h2 class="section-label" data-i18n="sec_technical_projects">Technical Projects <span class="exp-link"><a href="https://github.com/yourhandle" target="_blank" aria-label="GitHub">🔗</a></span></h2>
+          <ul class="exp-bullets" role="list" data-i18n-list="tech_bullets">
+            <li><strong>Cypress E2E Automation Framework</strong> — Built a modular Cypress suite covering critical user flows across three platforms spanning payments, project management, and healthcare; reduced manual regression effort by ~80% per release cycle. <span class="exp-link"><a href="https://youba.online" target="_blank">🔗</a></span></li>
             <li><strong>API Testing Suite (Postman / REST)</strong> — Designed and executed API test collections across GivePayments, Roundrush, and Ronda; documented edge cases across error handling, voiding, and reversal flows.</li>
             <li><strong>AI-Assisted QA Workflow</strong> — Implemented AI tooling (ChatGPT, GitHub Copilot) to accelerate test case generation and risk-based defect classification within Agile sprints.</li>
             <li><strong>CI/CD Testing Integration</strong> — Integrated automated Cypress test runs into a CI pipeline (GitHub Actions / Docker), enabling faster feedback loops on pull requests.</li>
+            <li><strong>Third-Person Traversal &amp; Camera System (Godot / GDScript)</strong> — Designed and implemented a third-person traversal system using GDScript in Godot Engine, including movement mechanics, camera handling, and environmental interaction.</li>
+            <li><strong>Brokenjars Interactive Website (Next.js)</strong> — Developed and maintained the official Brokenjars website using Next.js, integrating dynamic content, responsive design, and modular component architecture.</li>
           </ul>
         </section>
 
+        <!-- EDUCATION -->
         <section id="education" class="section-gap">
           <h2 class="section-label" data-i18n="sec_education">Education &amp; Certification</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-4)">
@@ -479,27 +514,81 @@
             <p class="skill-group-label" data-i18n="sg_tools">Tools</p>
             <div class="skill-chips">
               <span class="chip">Jira</span>
+              <span class="chip">Asana</span>
               <span class="chip">Postman</span>
               <span class="chip">Git / GitHub</span>
               <span class="chip">Docker</span>
               <span class="chip">Figma</span>
+              <span class="chip">Custom Sheets (Excel/Sheets)</span>
             </div>
           </div>
+
+          <!-- PROFICIENCY MATRIX -->
           <div class="skill-group">
-            <p class="skill-group-label" data-i18n="sg_tech">Programming</p>
+            <p class="skill-group-label" data-i18n="sg_prog">Proficiency Matrix</p>
+            <div class="proficiency-item"><span class="proficiency-name">Cypress / JavaScript</span><span class="proficiency-level proficient">Proficient</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">TypeScript</span><span class="proficiency-level proficient">Proficient</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">Postman / API Testing</span><span class="proficiency-level proficient">Proficient</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">Docker / CI/CD</span><span class="proficiency-level proficient">Proficient</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">AI Tools</span><span class="proficiency-level proficient">Proficient</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">Playwright</span><span class="proficiency-level familiar">Familiar</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">C# / .NET</span><span class="proficiency-level familiar">Familiar</span></div>
+            <div class="proficiency-item"><span class="proficiency-name">SQL / Bash</span><span class="proficiency-level familiar">Familiar</span></div>
+          </div>
+
+          <!-- PROGRAMMING LANGUAGES — now translated -->
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_prog_lang">Programming Languages</p>
             <div class="skill-chips">
-              <span class="chip">JavaScript</span>
-              <span class="chip">TypeScript</span>
               <span class="chip">C</span>
               <span class="chip">C#</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">TypeScript</span>
               <span class="chip">HTML &amp; CSS</span>
-              <span class="chip">JSX</span>
-              <span class="chip">TSX</span>
               <span class="chip">SQL</span>
               <span class="chip">Bash</span>
             </div>
           </div>
+
+          <!-- DESIGN & CREATIVE — now translated -->
+          <div class="skill-group">
+            <p class="skill-group-label" data-i18n="sg_design_creative">Design &amp; Creative</p>
+            <div class="skill-chips">
+              <span class="chip">Milanote</span>
+              <span class="chip">Adobe Illustrator</span>
+              <span class="chip">DaVinci Resolve</span>
+              <span class="chip">Blender</span>
+              <span class="chip">Unity Engine</span>
+              <span class="chip">Unreal Engine</span>
+            </div>
+          </div>
         </div>
+
+        <!-- PERSONAL DEVELOPMENT -->
+        <div class="sidebar-section">
+          <h2 class="sidebar-title" data-i18n="sec_personal_dev">Personal Development</h2>
+          <div class="cert-item">
+            <span class="cert-name" data-i18n="pd_cypress">Cypress Web Automation</span>
+            <span class="cert-issuer" data-i18n="status_self_study">Self-Study</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name" data-i18n="pd_postman">Postman API Testing</span>
+            <span class="cert-issuer" data-i18n="status_self_study">Self-Study</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name" data-i18n="pd_agile">Agile Scrum Master</span>
+            <span class="cert-issuer" data-i18n="status_self_study">Self-Study</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name" data-i18n="dev_be">Backend Logic &amp; API Design</span>
+            <span class="cert-issuer" data-i18n="status_ongoing">Ongoing</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name" data-i18n="dev_db">Database Design</span>
+            <span class="cert-issuer" data-i18n="status_ongoing">Ongoing</span>
+          </div>
+        </div>
+
         <div class="sidebar-section">
           <h2 class="sidebar-title" data-i18n="sec_languages">Languages</h2>
           <div class="lang-item"><span class="lang-name" data-i18n="lang_en">English</span><span class="lang-level-txt" data-i18n="level_fluent">Fluent</span></div>
@@ -514,8 +603,10 @@
             <span data-i18n="btn_save">Save as PDF</span>
           </button>
         </div>
-              <div class="sidebar-section">
-          <h2 class="sidebar-title">Hobbies &amp; Interests</h2>
+
+        <!-- HOBBIES — now translated -->
+        <div class="sidebar-section">
+          <h2 class="sidebar-title" data-i18n="sec_hobbies">Hobbies &amp; Interests</h2>
           <div class="skill-chips">
             <span class="chip">🎮 Gaming</span>
             <span class="chip">🏍️ Motorcycles</span>
@@ -530,7 +621,7 @@
 
 <footer style="border-top:1px solid var(--color-divider);padding:var(--space-8) 0;margin-top:var(--space-4)">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)">
-    <p style="font-size:var(--text-xs);color:var(--color-text-faint)">© 2026 Youba Bakhouche · youba.online</p>
+    <p style="font-size:var(--text-xs);color:var(--color-text-faint)" data-i18n="footer_copyright">© 2026 Youba Bakhouche · youba.online</p>
     <p style="font-size:var(--text-xs);color:var(--color-text-faint)" data-i18n="footer_open">Open to remote QA opportunities</p>
   </div>
 </footer>
@@ -543,13 +634,12 @@ const T = {
     hero_title:"Test Automation · QA Strategy · Agile Delivery",
     hero_summary:`Results-driven QA Automation Engineer with <strong>2+ years of experience</strong> owning end-to-end quality assurance across <strong>3 web products</strong> in fintech and SaaS environments. Built and maintained <strong>Cypress E2E automation suites</strong>, led a QA team, and contributed to product ownership and backlog management. Proven track record of <strong>reducing regression time by ~80%</strong>, preventing production bugs, and aligning QA strategy with business goals.`,
     location:"Boumerdès, Algeria · Remote",
-    score_title:"CV Score",score_sub:"Target: QA Engineer<br>Optimized for ATS",
     sec_experience:"Experience",sec_projects:"Independent Projects",
     sec_education:"Education & Certification",sec_skills:"Core Skills",sec_languages:"Languages",
     sg_qa:"QA & Testing",sg_pm:"Project Management",sg_process:"Process & Methodology",
-    sg_tools:"Tools & Platforms",sg_tech:"Technical",
+    sg_tools:"Tools & Platforms",sg_prog:"Proficiency Matrix",
     ld_role:"QA Engineer & Team Lead",cap_role:"Project Manager",bj_role:"Director & Product Owner",
-    tag_remote:"Remote",loc_algeria:"Algeria",bj_date:"Apr 2023 – Present",paused:"(Paused)",
+    tag_remote:"Remote",loc_algeria:"Algeria",bj_date:"Apr 2023 – Jul 2024",paused:"(Paused)",
     lang_en:"English",lang_fr:"French",lang_ar:"Arabic",lang_kab:"Amazighe",
     level_fluent:"Fluent",level_native:"Native",
     edu1_degree:"Master's in Heritage Anthropology",
@@ -557,16 +647,46 @@ const T = {
     edu_school:"University of Elhadj Lakhdar, Batna",
     cert_name:"Competence Badge — Project Manager & QA Engineer",
     btn_save:"Save as PDF",footer_open:"Open to remote QA opportunities",
+    // Achievements
+    ach1_num:"~80%", ach1_label:"Regression Reduction",
+    ach2_num:"90%", ach2_label:"Bugs Caught Pre-Production",
+    ach3_num:"3", ach3_label:"Products QA-Owned",
+    ach4_num:"✔", ach4_label:"Investor Funding Secured",
+    // Personal Development
+    sec_personal_dev:"Personal Development",
+    pd_cypress:"Cypress Web Automation",
+    pd_postman:"Postman API Testing",
+    pd_agile:"Agile Scrum Master",
+    dev_be:"Backend Logic & API Design",
+    dev_db:"Database Design",
+    status_self_study:"Self-Study",
+    status_ongoing:"Ongoing",
+    // Technical Projects
+    sec_technical_projects:"Technical Projects",
+    tech_bullets:[
+      `<strong>Cypress E2E Automation Framework</strong> — Built a modular Cypress suite covering critical user flows across three platforms spanning payments, project management, and healthcare; reduced manual regression effort by ~80% per release cycle.`,
+      `<strong>API Testing Suite (Postman / REST)</strong> — Designed and executed API test collections across GivePayments, Roundrush, and Ronda; documented edge cases across error handling, voiding, and reversal flows.`,
+      `<strong>AI-Assisted QA Workflow</strong> — Implemented AI tooling (ChatGPT, GitHub Copilot) to accelerate test case generation and risk-based defect classification within Agile sprints.`,
+      `<strong>CI/CD Testing Integration</strong> — Integrated automated Cypress test runs into a CI pipeline (GitHub Actions / Docker), enabling faster feedback loops on pull requests.`,
+      `<strong>Third-Person Traversal & Camera System (Godot / GDScript)</strong> — Designed and implemented a third-person traversal system using GDScript in Godot Engine, including movement mechanics, camera handling, and environmental interaction.`,
+      `<strong>Brokenjars Interactive Website (Next.js)</strong> — Developed and maintained the official Brokenjars website using Next.js, integrating dynamic content, responsive design, and modular component architecture.`
+    ],
+    // Sidebar additions
+    sg_prog_lang:"Programming Languages",
+    sg_design_creative:"Design & Creative",
+    sec_hobbies:"Hobbies & Interests",
+    footer_copyright:"© 2026 Youba Bakhouche · youba.online",
     ld_bullets:[
-      `Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>10+ releases</strong> and eliminating critical production escapes.`,
-      `Built and maintained a <strong>Cypress E2E automation suite</strong> covering critical payment and user flows, reducing manual regression time by <strong>~0%</strong> per release cycle.`,
+      `Owned <strong>QA strategy and release readiness</strong> for <strong>3 web products</strong> across fintech and SaaS verticals, supporting <strong>20+ releases</strong> and eliminating critical production escapes.`,
+      `Built and maintained a <strong>Cypress E2E automation suite</strong> covering critical payment and user flows, reducing manual regression time by <strong>~80%</strong> per release cycle.`,
       `Conducted <strong>REST API testing</strong> (Postman) across <strong>GivePayments, Roundrush, and Ronda</strong> — validating integration contracts and catching edge-case defects before frontend delivery.`,
       `Integrated <strong>AI-assisted QA workflows</strong> (test case generation, risk-based prioritization) accelerating sprint QA planning and improving coverage relevance for new features.`,
-      `Mentored <strong>Team Mates</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.`
+      `Mentored <strong>Team Members</strong> on Cypress automation, black-box/white-box testing, and defect reporting; bridged QA and product teams on requirements, acceptance criteria, and risk analysis.`
     ],
     cap_bullets:[
       `Managed <strong>stakeholder communication</strong> and project coordination between CAPDEL leadership and third-party partners, ensuring alignment on deliverables, milestones, and follow-up actions.`,
-      `Gathered and translated business requirements into structured deliverables .`, `Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.`
+      `Gathered and translated business requirements into structured deliverables.`,
+      `Coordinated exhibitions and events to showcase artisanal tapestry products, enhancing brand visibility and market reach.`
     ],
     bj_bullets:[
       `Acted as <strong>Product Owner</strong> — led requirements gathering, backlog definition, and roadmap planning using Agile project management practices in a creative product environment.`,
@@ -579,15 +699,14 @@ const T = {
     nav_experience:"Expérience",nav_projects:"Projets",nav_skills:"Compétences",nav_education:"Formation",
     kicker:"Ingénieur QA Automation | Cypress | Tests API | Team Lead",
     hero_title:"Automatisation · Stratégie QA · Livraison Agile",
-    hero_summary:`Ingénieur QA Automation avec <strong>3+ ans d'expérience</strong> en charge de la qualité de <strong>3 produits web</strong> en fintech et SaaS. Réduction du temps de régression de <strong>~80%</strong> et zéro bug critique en production.`,
+    hero_summary:`Ingénieur QA Automation avec <strong>2+ ans d'expérience</strong> en charge de la qualité de <strong>3 produits web</strong> en fintech et SaaS. Réduction du temps de régression de <strong>~80%</strong> et zéro bug critique en production.`,
     location:"Boumerdès, Algérie · Distanciel",
-    score_title:"Score CV",score_sub:"Cible : Ingénieur QA<br>Optimisé ATS",
     sec_experience:"Expérience",sec_projects:"Projets Personnels",
     sec_education:"Formation & Certification",sec_skills:"Compétences Clés",sec_languages:"Langues",
     sg_qa:"QA & Tests",sg_pm:"Gestion de Projet",sg_process:"Méthodes & Processus",
-    sg_tools:"Outils & Plateformes",sg_tech:"Technique",
+    sg_tools:"Outils & Plateformes",sg_prog:"Matrice de Compétences",
     ld_role:"Ingénieur QA & Team Lead",cap_role:"Chef de Projet",bj_role:"Directeur & Product Owner",
-    tag_remote:"Distanciel",loc_algeria:"Algérie",bj_date:"Avr 2023 – Présent",paused:"(En pause)",
+    tag_remote:"Distanciel",loc_algeria:"Algérie",bj_date:"Avr 2023 – Juil 2024",paused:"(En pause)",
     lang_en:"Anglais",lang_fr:"Français",lang_ar:"Arabe",lang_kab:"Amazighe",
     level_fluent:"Courant",level_native:"Langue maternelle",
     edu1_degree:"Master en Anthropologie du Patrimoine",
@@ -595,16 +714,44 @@ const T = {
     edu_school:"Université Hadj Lakhdar, Batna",
     cert_name:"Badge de Compétences — Chef de Projet & Ingénieur QA",
     btn_save:"Enregistrer en PDF",footer_open:"Ouvert aux opportunités QA à distance",
+    ach1_num:"~80%", ach1_label:"Réduction des régressions",
+    ach2_num:"90%", ach2_label:"Bugs détectés pré-production",
+    ach3_num:"3", ach3_label:"Produits sous responsabilité QA",
+    ach4_num:"✔", ach4_label:"Financement obtenu",
+    sec_personal_dev:"Développement Personnel",
+    pd_cypress:"Automatisation Web Cypress",
+    pd_postman:"Tests API Postman",
+    pd_agile:"Agile Scrum Master",
+    dev_be:"Logique Backend & Conception API",
+    dev_db:"Conception de bases de données",
+    status_self_study:"Auto-formation",
+    status_ongoing:"En cours",
+    // Technical Projects
+    sec_technical_projects:"Projets Techniques",
+    tech_bullets:[
+      `<strong>Framework d'automatisation Cypress E2E</strong> — Construction d'une suite Cypress modulaire couvrant les flux utilisateurs critiques sur trois plateformes (paiements, gestion de projet, santé) ; réduction de l'effort de régression manuel d'environ 80% par cycle de release.`,
+      `<strong>Suite de tests API (Postman / REST)</strong> — Conception et exécution de collections de tests API sur GivePayments, Roundrush et Ronda ; documentation des cas limites (gestion d'erreurs, annulations, reversements).`,
+      `<strong>Workflow QA assisté par IA</strong> — Mise en œuvre d'outils d'IA (ChatGPT, GitHub Copilot) pour accélérer la génération de cas de test et la classification des défauts basée sur les risques dans les sprints Agile.`,
+      `<strong>Intégration des tests CI/CD</strong> — Intégration des tests Cypress automatisés dans un pipeline CI (GitHub Actions / Docker), permettant des boucles de rétroaction plus rapides sur les pull requests.`,
+      `<strong>Système de traversée et de caméra à la troisième personne (Godot / GDScript)</strong> — Conception et implémentation d'un système de traversée à la troisième personne en GDScript sur Godot, incluant mécaniques de mouvement, gestion de caméra et interactions environnementales.`,
+      `<strong>Site web Brokenjars Interactive (Next.js)</strong> — Développement et maintenance du site officiel Brokenjars avec Next.js, intégrant du contenu dynamique, un design responsive et une architecture modulaire.`
+    ],
+    // Sidebar additions
+    sg_prog_lang:"Langages de programmation",
+    sg_design_creative:"Design & Créatif",
+    sec_hobbies:"Loisirs & Centres d'intérêt",
+    footer_copyright:"© 2026 Youba Bakhouche · youba.online",
     ld_bullets:[
-      `Responsable de la <strong>stratégie QA</strong> pour <strong>3 produits web</strong>, couvrant <strong>10+ releases</strong>.`,
+      `Responsable de la <strong>stratégie QA</strong> pour <strong>3 produits web</strong>, couvrant <strong>20+ releases</strong>.`,
       `Conception d'une <strong>suite E2E Cypress</strong> réduisant la régression manuelle de <strong>~80%</strong>.`,
       `Tests <strong>REST API</strong> (Postman) sur <strong>GivePayments, Roundrush et Ronda</strong> — validation des contrats d'intégration.`,
       `Intégration de <strong>workflows QA assistés par IA</strong> accélérant la planification en sprint.`,
-      `Mentorat de <strong>2 ingénieurs QA</strong> sur Cypress et tests boîte noire/blanche.`
+      `Mentorat de <strong>membres de l'équipe</strong> sur Cypress et tests boîte noire/blanche.`
     ],
     cap_bullets:[
       `Gestion de la <strong>communication avec les parties prenantes</strong> entre CAPDEL et les partenaires tiers.`,
-      `Collecte et traduction des besoins métier en livrables structurés.`
+      `Collecte et traduction des besoins métier en livrables structurés.`,
+      `Coordination d'expositions pour améliorer la visibilité de la marque.`
     ],
     bj_bullets:[
       `Rôle de <strong>Product Owner</strong> — backlog et roadmap Agile.`,
@@ -617,15 +764,14 @@ const T = {
     nav_experience:"الخبرة",nav_projects:"المشاريع",nav_skills:"المهارات",nav_education:"التعليم",
     kicker:"مهندس أتمتة ضمان الجودة | Cypress | اختبار API | قائد فريق",
     hero_title:"أتمتة الاختبارات · استراتيجية الجودة · التسليم الرشيق",
-    hero_summary:`مهندس أتمتة ضمان جودة بخبرة <strong>أكثر من 3 سنوات</strong>. بنى <strong>Cypress E2E</strong> وقاد الفريق. حقق <strong>تخفيض 80%</strong> في وقت الاختبار.`,
+    hero_summary:`مهندس أتمتة ضمان جودة بخبرة <strong>أكثر من 2 سنة</strong>. بنى <strong>Cypress E2E</strong> وقاد الفريق. حقق <strong>تخفيض 80%</strong> في وقت الاختبار.`,
     location:"بومرداس، الجزائر · عن بُعد",
-    score_title:"تقييم السيرة",score_sub:"الهدف: مهندس QA<br>محسّن للـ ATS",
     sec_experience:"الخبرة المهنية",sec_projects:"المشاريع المستقلة",
     sec_education:"التعليم والشهادات",sec_skills:"المهارات الأساسية",sec_languages:"اللغات",
     sg_qa:"ضمان الجودة والاختبارات",sg_pm:"إدارة المشاريع",sg_process:"المنهجيات والعمليات",
-    sg_tools:"الأدوات والمنصات",sg_tech:"التقنية",
+    sg_tools:"الأدوات والمنصات",sg_prog:"مصفوفة الكفاءة",
     ld_role:"مهندس QA وقائد فريق",cap_role:"مدير مشروع",bj_role:"مدير ومالك المنتج",
-    tag_remote:"عن بُعد",loc_algeria:"الجزائر",bj_date:"أبريل 2023 – حتى الآن",paused:"(متوقف)",
+    tag_remote:"عن بُعد",loc_algeria:"الجزائر",bj_date:"أبريل ٢٠٢٣ – يوليو ٢٠٢٤",paused:"(متوقف)",
     lang_en:"الإنجليزية",lang_fr:"الفرنسية",lang_ar:"العربية",lang_kab:"الأمازيغية",
     level_fluent:"طليق",level_native:"اللغة الأم",
     edu1_degree:"ماجستير في أنثروبولوجيا التراث",
@@ -633,16 +779,44 @@ const T = {
     edu_school:"جامعة الحاج لخضر، باتنة",
     cert_name:"شارة كفاءة — مدير مشروع ومهندس QA",
     btn_save:"حفظ كـ PDF",footer_open:"منفتح على فرص QA عن بُعد",
+    ach1_num:"~٨٠٪", ach1_label:"تقليل زمن الاختبارات",
+    ach2_num:"٩٠٪", ach2_label:"الأخطاء المكتشفة قبل الإنتاج",
+    ach3_num:"٣", ach3_label:"منتجات تحت مسؤولية QA",
+    ach4_num:"✔", ach4_label:"تمويل مستثمرين",
+    sec_personal_dev:"التطوير الشخصي",
+    pd_cypress:"أتمتة الويب Cypress",
+    pd_postman:"اختبار API باستخدام Postman",
+    pd_agile:"أجايل سكروم ماستر",
+    dev_be:"منطق الخادم وتصميم API",
+    dev_db:"تصميم قواعد البيانات",
+    status_self_study:"دراسة ذاتية",
+    status_ongoing:"قيد التطوير",
+    // Technical Projects
+    sec_technical_projects:"المشاريع التقنية",
+    tech_bullets:[
+      `<strong>إطار أتمتة Cypress E2E</strong> — بناء مجموعة Cypress معيارية تغطي تدفقات المستخدم الحرجة عبر ثلاث منصات (المدفوعات، إدارة المشاريع، الرعاية الصحية)؛ تقليل جهد الاختبار اليدوي بنسبة 80% تقريبًا لكل دورة إصدار.`,
+      `<strong>مجموعة اختبار API (Postman / REST)</strong> — تصميم وتنفيذ مجموعات اختبار API عبر GivePayments وRoundrush وRonda؛ توثيق حالات الحافة مثل معالجة الأخطاء والإلغاءات والمبالغ المستردة.`,
+      `<strong>سير عمل QA المدعوم بالذكاء الاصطناعي</strong> — تطبيق أدوات الذكاء الاصطناعي (ChatGPT، GitHub Copilot) لتسريع إنشاء حالات الاختبار وتصنيف العيوب حسب الأولوية في سباقات Agile.`,
+      `<strong>دمج اختبارات CI/CD</strong> — دمج تشغيل اختبارات Cypress الآلية في مسار CI (GitHub Actions / Docker)، مما يتيح حلقات تغذية راجعة أسرع على طلبات السحب.`,
+      `<strong>نظام حركة وكاميرا من منظور ثالث (Godot / GDScript)</strong> — تصميم وتنفيذ نظام حركة من منظور ثالث باستخدام GDScript في محرك Godot، بما في ذلك آليات الحركة والتحكم في الكاميرا والتفاعل مع البيئة.`,
+      `<strong>موقع Brokenjars Interactive الإلكتروني (Next.js)</strong> — تطوير وصيانة الموقع الرسمي لـ Brokenjars باستخدام Next.js، مع دمج محتوى ديناميكي وتصميم متجاوب وهندسة معيارية.`
+    ],
+    // Sidebar additions
+    sg_prog_lang:"لغات البرمجة",
+    sg_design_creative:"التصميم والإبداع",
+    sec_hobbies:"الهوايات والاهتمامات",
+    footer_copyright:"© 2026 Youba Bakhouche · youba.online",
     ld_bullets:[
-      `امتلك <strong>استراتيجية QA</strong> لـ<strong>3 منتجات ويب</strong>، دعم <strong>10+ إصدارات</strong>.`,
+      `امتلك <strong>استراتيجية QA</strong> لـ<strong>3 منتجات ويب</strong>، دعم <strong>٢٠+ إصدارًا</strong>.`,
       `بنى <strong>Cypress E2E</strong> مما قلل الاختبار اليدوي بـ<strong>80%</strong>.`,
       `اختبار <strong>REST API</strong> عبر <strong>GivePayments وRoundrush وRonda</strong>.`,
       `دمج <strong>سير عمل QA بالذكاء الاصطناعي</strong> لتسريع التخطيط.`,
-      `أرشد <strong>مهندسَي QA</strong> على Cypress واختبار الصندوق الأسود/الأبيض.`
+      `أرشد <strong>أعضاء الفريق</strong> على Cypress واختبار الصندوق الأسود/الأبيض.`
     ],
     cap_bullets:[
       `إدارة التواصل بين قيادة CAPDEL والشركاء الخارجيين.`,
-      `جمع متطلبات الأعمال وترجمتها إلى مخرجات منظمة.`
+      `جمع متطلبات الأعمال وترجمتها إلى مخرجات منظمة.`,
+      `تنسيق المعارض والفعاليات لتعزيز رؤية العلامة التجارية.`
     ],
     bj_bullets:[
       `دور <strong>مالك المنتج</strong> — backlog وroadmap Agile.`,
@@ -689,14 +863,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('clic
 })();
 
 (function(){
-  const arc=document.getElementById('score-arc'), num=document.getElementById('score-num');
-  if(!arc) return;
-  const score=78, c=213.6;
-  new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ arc.style.strokeDashoffset=c-(score/100)*c; let i=0; const iv=setInterval(()=>{ num.textContent=Math.min(i+=2,score); if(i>=score)clearInterval(iv); },18); } }); },{threshold:.5}).observe(arc);
-})();
-
-(function(){
-  const obs=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('is-visible'),i*80); obs.unobserve(e.target); } }); },{threshold:.12});
+  const obs=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('is-visible'),i*60); obs.unobserve(e.target); } }); },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
 </script>
